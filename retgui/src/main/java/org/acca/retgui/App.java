@@ -14,6 +14,8 @@ public class App
 
         System.out.println( "远程更新" );
         System.out.println( "zhang xue commit;" );
+        
+        System.out.println( "pull之后更新" );
 
     }
 }
