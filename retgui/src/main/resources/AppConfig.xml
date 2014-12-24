@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 用户的配置文件，支持热部署，不需要重新启动服务 -->
+<AppConfig>
+    <QueueServer>
+        <Address>queue.brokerURL=tcp://10.1.39.64:61616</Address>
+    </QueueServer>
+    <MonitorCenter>
+        <Ip>10.1.39.64</Ip>
+        <Port>2181</Port>
+    </MonitorCenter>
+    <MailServer>
+        <HostName>10.6.168.207</HostName>
+        <UserName>zhangran</UserName>
+        <Password>kekeer</Password>
+        <MailAddress>zhangran@travelsky.com</MailAddress>
+    </MailServer>
+    <userPicPath>/nbs/araf/pics/</userPicPath>
+</AppConfig>

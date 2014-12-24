@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+	<appender class="org.apache.log4j.ConsoleAppender" name="RootConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH\:mm\:ss\:SSS}][%p] (%c\:%L) - %m%n" />
+		</layout>
+	</appender>
+	<appender name="activexAppender" class="org.apache.log4j.DailyRollingFileAppender">  
+        <param name="File" value="D:/activex.log" />   
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />   
+        <layout class="org.apache.log4j.PatternLayout">  
+         <param name="ConversionPattern"   
+            value="[%d{MMdd HH:mm:ss SSS\} %-5p] [%t] %c{3\} - %m%n" />  
+        </layout>   
+    </appender>  
+	<category name="BUSINESS">
+		<level value="DEBUG" />
+	</category>
+	<category name="org.apache.activemq">
+		<level value="INFO" />
+	</category>
+	<category name="org.apache.curator">
+        <level value="ERROR" />
+        <appender-ref ref="activexAppender" /> 
+    </category>
+    <category name="org.apache.zookeeper">
+        <level value="ERROR" />
+        <appender-ref ref="activexAppender" /> 
+    </category>
+    <category name="araf.components">
+        <level value="DEBUG" />
+        <appender-ref ref="activexAppender" /> 
+    </category>
+    <category name="araf.platform">
+        <level value="DEBUG" />
+        <appender-ref ref="activexAppender" /> 
+    </category>
+	<root>
+		<priority value="INFO" />
+		<appender-ref ref="RootConsoleAppender" />
+	</root>
+</log4j:configuration>
