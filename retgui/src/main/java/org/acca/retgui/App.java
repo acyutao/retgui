@@ -13,6 +13,7 @@ public class App
         System.out.println( "Zhang Xue another account !" );
 
         System.out.println( "远程更新" );
+        System.out.println( "zhang xue commit;" );
 
     }
 }
