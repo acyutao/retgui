@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<!-- login view -->
+	<definition name="login" template="/WEB-INF/views/login.jsp" />
+	
+	
+	
+	<!-- 页面模板 -->
+	<definition name="basetemplate" template="/WEB-INF/views/public/base.jsp">
+		<put-attribute name="meta" value="/WEB-INF/views/public/meta.jsp"></put-attribute>
+		<put-attribute name="css" value="/WEB-INF/views/public/css.jsp"></put-attribute>
+		<put-attribute name="short-icon"
+			value="/WEB-INF/views/public/short_icon.jsp"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/public/header.jsp"></put-attribute>
+		<put-attribute name="sidebar" value="/WEB-INF/views/public/sidebar.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/public/footer.jsp"></put-attribute>
+		<put-attribute name="script" value="/WEB-INF/views/public/script.jsp"></put-attribute>
+
+	</definition>
+	
+	
+	<!-- 首页 -->
+	<definition name="index" extends="basetemplate">
+		<put-attribute name="page-css" value="/WEB-INF/views/index_css.jsp"></put-attribute>
+		<put-attribute name="page" value="/WEB-INF/views/index.jsp"></put-attribute>
+		<put-attribute name="page-script" value="/WEB-INF/views/index_script.jsp"></put-attribute>
+	</definition>
+	
+	
+	<!-- documents list页面 -->
+    <definition name="documentsList" extends="basetemplate">
+        <put-attribute name="page" value="/WEB-INF/views/documents/documentsList.jsp"></put-attribute>
+        <put-attribute name="page-script" value="/WEB-INF/views/public/datatable_scripts.jsp"></put-attribute>
+		<put-attribute name="page-css" value="/WEB-INF/views/documents/documents_css.jsp"></put-attribute>
+    </definition>
+    
+    <!-- documents detail页面 -->
+    <definition name="document" extends="basetemplate">
+        <put-attribute name="page" value="/WEB-INF/views/documents/documentDetail.jsp"></put-attribute>
+        <put-attribute name="page-script" value="/WEB-INF/views/documents/documentDetail_scripts.jsp"></put-attribute>
+		<put-attribute name="page-css" value="/WEB-INF/views/documents/documents_css.jsp"></put-attribute>
+    </definition>
+    
+    <!-- User detail页面 -->
+    <definition name="userDetail" extends="basetemplate">
+        <put-attribute name="page" value="/WEB-INF/views/user/userDetail.jsp"></put-attribute>
+        <put-attribute name="page-script" value="/WEB-INF/views/user/userDetail_scripts.jsp"></put-attribute>
+		<put-attribute name="page-css" value="/WEB-INF/views/user/userDetail_css.jsp"></put-attribute>
+    </definition>
+    
+    <!-- User List页面 -->
+    <definition name="userList" extends="basetemplate">
+        <put-attribute name="page" value="/WEB-INF/views/user/userList.jsp"></put-attribute>
+        <put-attribute name="page-script" value="/WEB-INF/views/user/userList_scripts.jsp"></put-attribute>
+		<put-attribute name="page-css" value="/WEB-INF/views/user/userList_css.jsp"></put-attribute>
+    </definition>
+    
+    <!-- lawrisks list页面 -->
+    <definition name="lawRiskList" extends="basetemplate">
+        <put-attribute name="page" value="/WEB-INF/views/documents/lawRiskList.jsp"></put-attribute>
+        <put-attribute name="page-script" value="/WEB-INF/views/public/datatable_scripts.jsp"></put-attribute>
+		<put-attribute name="page-css" value="/WEB-INF/views/documents/lawRisk_css.jsp"></put-attribute>
+    </definition>
+    
+    <!-- LawRisk detail页面 -->
+    <definition name="lawRiskDetail" extends="basetemplate">
+        <put-attribute name="page" value="/WEB-INF/views/documents/lawRiskDetail.jsp"></put-attribute>
+        <put-attribute name="page-script" value="/WEB-INF/views/documents/lawRisk_scripts.jsp"></put-attribute>
+		<put-attribute name="page-css" value="/WEB-INF/views/documents/lawRisk_css.jsp"></put-attribute>
+    </definition>
+
+</tiles-definitions>
