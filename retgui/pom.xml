@@ -192,12 +192,7 @@
 			<version>1.2</version>
 			<type>jar</type>
 		</dependency>
-		<dependency>
-			<groupId>javax.el</groupId>
-			<artifactId>el-api</artifactId>
-			<version>2.2</version>
-			<type>jar</type>
-		</dependency>
+		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
