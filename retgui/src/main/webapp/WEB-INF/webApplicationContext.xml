@@ -12,7 +12,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 	<!-- 加载配置属性文件 -->
 	<context:property-placeholder
 		ignore-unresolvable="true" location="classpath*:/application.properties" />
-	
+
 	<!-- 使用Annotation自动注册Bean,只扫描@Controller -->
 	<context:component-scan base-package="org.acca, araf"
 		use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
@@ -60,7 +60,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		<property name="viewClass">
 			<value>
 				org.springframework.web.servlet.view.tiles3.TilesView
-            </value>
+			</value>
 		</property>
 		<property name="order" value="1"></property>
 	</bean>
@@ -70,7 +70,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		<property name="suffix" value="${web.view.suffix}" />
 		<property name="order" value="2"></property>
 	</bean>
-	
+
 
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
@@ -81,5 +81,13 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		</property>
 	</bean>
 
+	<!-- 上传文件拦截，设置最大上传文件大小 10M=10*1024*1024(B)=10485760 bytes -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="${web.maxUploadSize}" />
+		<property name="defaultEncoding" value="UTF-8" />
+		<!--resolveLazily属性启用是为了推迟文件解析，以便在UploadAction 中捕获文件大小异常 -->
+		<property name="resolveLazily" value="true" />
+	</bean>
 
 </beans>

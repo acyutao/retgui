@@ -6,13 +6,13 @@
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <araf:script url="assets/global/scripts/metronic.js" />
 <araf:script url="assets/admin/layout/scripts/layout.js" />
-<araf:script url="assets/admin/pages/scripts/form-dropzone.js" />
+<araf:script url="assets/admin/pages/custom/upload.js" />
 <script>
 	jQuery(document).ready(function() {
 		// initiate layout and plugins
 		Metronic.init(); // init metronic core components
 		Layout.init(); // init current layout
-		FormDropzone.init();
+		DropzoneUpload.init();
 	});
 </script>
 <!-- END PAGE LEVEL SCRIPTS -->

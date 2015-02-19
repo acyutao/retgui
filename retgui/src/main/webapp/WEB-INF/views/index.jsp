@@ -44,8 +44,7 @@
 			works only on Latest Chrome, Firefox, Safari, Opera & Internet
 			Explorer 10.
 		</p>
-		<form action="../../assets/global/plugins/dropzone/upload.php"
-			class="dropzone" id="my-dropzone"></form>
+		<form action="<c:url value="/upload"/>" class="dropzone" id="my-dropzone"></form>
 	</div>
 </div>
 <!-- END PAGE CONTENT-->
