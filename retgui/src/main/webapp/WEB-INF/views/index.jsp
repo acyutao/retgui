@@ -7,8 +7,7 @@
 	<div class="col-md-12">
 		<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 		<h3 class="page-title">
-			Dropzone File Upload <small>amazing dropzone file upload
-				sample</small>
+			文件上传 <small>支持拖拽功能</small>
 		</h3>
 		<ul class="page-breadcrumb breadcrumb">
 			<li class="btn-group">
@@ -27,9 +26,9 @@
 			</li>
 			<li><i class="fa fa-home"></i> <a href="index.html">Home</a> <i
 				class="fa fa-angle-right"></i></li>
-			<li><a href="#">Form Stuff</a> <i class="fa fa-angle-right"></i>
+			<li><a href="#">上传文件</a> 
 			</li>
-			<li><a href="#">Dropzone File Upload</a></li>
+			
 		</ul>
 		<!-- END PAGE TITLE & BREADCRUMB-->
 		<!-- END PAGE TITLE & BREADCRUMB-->
