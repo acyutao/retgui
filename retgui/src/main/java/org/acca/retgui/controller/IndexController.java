@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.acca.retgui.config.ConfigHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,7 +42,8 @@ public class IndexController {
                                  @RequestParam("file") MultipartFile file) throws Exception {
         if (!file.isEmpty()) {
             try {
-                file.transferTo(new File(file.getOriginalFilename()));
+            	String filePath = this.getFilePath();
+                file.transferTo(new File(filePath + file.getOriginalFilename()));
                 return "";
             } catch (FileNotFoundException ex) {
                 throw new RuntimeException("upload.failed.errorpath");
@@ -49,5 +51,19 @@ public class IndexController {
         } else {
             throw new RuntimeException("upload.failed.emptyfile");
         }
+    }
+    
+    /**
+     * 得到配置的文件路径，如果路径不存在，则创建
+     * @return
+     */
+    private String getFilePath(){
+    	
+    	String filePath = ConfigHelper.getInstance().getString(ConfigHelper.UPLOAD_FILE_PATH);
+    	File file = new File(filePath);
+    	if(!file.exists()){
+    		file.mkdirs();
+    	}
+    	return filePath;
     }
 }

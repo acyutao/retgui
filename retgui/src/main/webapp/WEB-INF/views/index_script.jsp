@@ -6,7 +6,7 @@
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <araf:script url="assets/global/scripts/metronic.js" />
 <araf:script url="assets/admin/layout/scripts/layout.js" />
-<araf:script url="assets/admin/pages/custom/upload.js" />
+<araf:script url="assets/admin/pages/custom/scripts/upload.js" />
 <script>
 	jQuery(document).ready(function() {
 		// initiate layout and plugins
