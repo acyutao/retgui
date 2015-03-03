@@ -1,0 +1,2071 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dish version="203">
+    <identifiers>
+    	<identifier name="IT01">
+            <elements>
+                <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>                	
+                <element desc="System Provider Reporting Period Ending Date" status="M" attribute="N" length="6" position="2" name="SPED"/>
+                <element desc="Reporting System Identifier" status="M" attribute="AN" length="4" position="8" name="RPSI"/>
+                <element desc="Handbook Revision Number" status="M" attribute="N" length="3" position="12" name="REVN"/>
+                <element desc="Test/Production Status" status="M" attribute="AN" length="4" position="15" name="TPST"/>
+                <element desc="Processing Date" status="M" attribute="N" length="6" position="19" name="PRDA"/>
+                <element desc="Processing Time" status="M" attribute="N" length="4" position="25" name="TIME"/>
+                <element desc="ISO Country Code" status="M" attribute="A" length="2" position="29" name="ISOC"/>
+                <element desc="Reserved Space" status="M" attribute="AN" length="6" position="31" name="RESD1"/>
+                <element desc="File Type" status="C" attribute="AN" length="1" position="37" name="FTYP"/>
+                <element desc="File Type Sequence Number" status="C" attribute="AN" length="2" position="38" name="FTSN"/>
+                <element desc="Reserved Space" status="M" attribute="AN" length="216" position="40" name="RESD2"/>
+            </elements>
+        </identifier>
+    
+        <identifier name="IT02">
+            <elements>
+                <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+                <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN"/>
+                <element desc="Agent Numeric Code" status="M" attribute="N" length="8" position="8" name="AGTN"/>
+                <element desc="Conjunction Ticket Indicator" status="C" attribute="AN" length="3" position="16" name="CJCP">
+                	<trncs>
+                		<trnc status="C" trncs="EMDA EMDS MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="CANX MD50 TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD SPCR CANN CANR"/>
+                	</trncs>
+                </element>
+                <element desc="Coupon Use Indicator" status="C" attribute="AN" length="4" position="19" name="CPUI">
+					<trncs>
+                		<trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="CANX EMDA EMDS MD50 TASF TKTT CANR"/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR RFNC ACMA ACMD ACNT SPCR CANN"/>
+                	</trncs>
+				</element>
+                <element desc="Date of Issue" status="M" attribute="N" length="6" position="23" name="DAIS"/>
+                <element desc="Statistical Code" status="C" attribute="AN" length="3" position="29" name="STAT">
+					<trncs>
+                		<trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs="TKTT ACMR RFNC RFND"/>
+                		<trnc status="N/A" trncs="CANX CANN CANR"/>
+                	</trncs>
+				</element>
+                <element desc="Ticket/Document Number" status="C" attribute="AN" length="15" position="32" name="TDNR">
+					<trncs>
+                		<trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="CANX EMDA EMDS MD50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN CANR"/>
+                		<trnc status="N/A" trncs=""/>           		
+                	</trncs>
+				</element>
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="47" name="CDGT1">
+					<trncs>
+                		<trnc status="C" trncs="MV50 ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs="CANX EMDA EMDS MD50 TASF TKTT RFNC RFND CANN CANR"/>
+                		<trnc status="N/A" trncs=""/> 
+                    </trncs>
+				</element>
+                <element desc="Transaction Code" status="M" attribute="AN" length="4" position="48" name="TRNC"/>
+                <element desc="Transmission Control Number" status="C" attribute="AN" length="15" position="52" name="TCNR">
+					<trncs>
+					    <trnc status="C" trncs="CANX EMDA EMDS MD50 MV50 TKTT RFNC RFND CANR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="TASF ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR CANN"/> 					
+               	     </trncs>
+				</element>
+                <element desc="Transmission Control Number Check-Digit" status="C" attribute="N" length="1" position="67" name="TCND">
+					<trncs>					
+						<trnc status="C" trncs="CANX EMDA EMDS MD50 MV50 TKTT RFNC RFND CANR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="TASF ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR CANN"/> 										
+                	</trncs>
+				</element>
+                <element desc="Ticketing Airline Code Number" status="C" attribute="AN" length="5" position="68" name="TACN">
+					<trncs>
+						<trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="CANX EMDA EMDS MD50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANR"/>
+                		<trnc status="N/A" trncs="CANN"/> 										
+                	</trncs>
+				</element>
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="73" name="CDGT2">
+					<trncs>
+						<trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="CANX EMDA EMDS MD50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANR"/>
+                		<trnc status="N/A" trncs="CANN"/> 										
+                	</trncs>
+				</element>
+                <element desc="Format Identifier" status="C" attribute="AN" length="1" position="74" name="FORM">
+					<trncs>
+						<trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="CANX EMDA EMDS MD50 TKTT CANN CANR"/>
+                		<trnc status="N/A" trncs="TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/> 										
+                	</trncs>
+				</element>
+                <element desc="Passenger Name" status="C" attribute="AN" length="49" position="75" name="PXNM">
+					<trncs>
+						<trnc status="C" trncs="MV50 TASF RFNC RFND"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50 TKTT"/>
+                		<trnc status="N/A" trncs="CANX ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR CANN CANR"/> 										
+                	</trncs>
+				</element>
+                <element desc="Approved Location Type" status="C" attribute="AN" length="1" position="124" name="ALTP1">
+					<trncs>                		
+						<trnc status="C" trncs="CANX MD50 MV50 TKTT CANR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN"/> 										
+                	</trncs>
+				</element>
+                <element desc="Stock Control Number or" status="C" attribute="AN" length="16" position="" name="SCNR1">
+					<trncs>                		
+						<trnc status="C" trncs="CANX MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS MD50 TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC ACMA ACMD SPCR CANN CANR"/> 										
+                	</trncs>
+				</element>
+                <element desc="Stock Control Number 'From'" status="C" attribute="AN" length="16" position="125" name="SCNF1">
+					<trncs>         
+						<trnc status="C" trncs="CANX MV50 TKTT"/>
+                		<trnc status="M" trncs="MD50"/>
+                		<trnc status="N/A" trncs="EMDA EMDS TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN CANR"/> 										
+                	</trncs>
+				</element>
+                <element desc="Stock Control Number 'To'" status="C" attribute="N" length="4" position="141" name="SCNT1">
+					<trncs>         
+						<trnc status="C" trncs="CANX MV50 TKTT"/>
+                		<trnc status="M" trncs="MD50"/>
+                		<trnc status="N/A" trncs="EMDA EMDS TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN CANR"/> 										
+                	</trncs>
+				</element>
+                <element desc="Approved Location Numeric Code" status="C" attribute="N" length="8" position="145" name="ALNC2">
+					<trncs>         
+						<trnc status="C" trncs="CANX MD50 MV50 TKTT CANR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN"/> 										
+                	</trncs>
+				</element>
+                <element desc="Approved Location Type" status="C" attribute="AN" length="1" position="153" name="ALTP2">
+					<trncs>         
+						<trnc status="C" trncs="CANX MD50 MV50 TKTT CANR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN"/> 										
+                	</trncs>
+				</element>
+                <element desc="Stock Control Number 'From'" status="C" attribute="AN" length="16" position="154" name="SCNF2">
+					<trncs>         
+						<trnc status="C" trncs="CANX MD50 MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN CANR"/> 										
+                	</trncs>
+				</element>
+                <element desc="Stock Control Number 'To'" status="C" attribute="N" length="4" position="170" name="SCNT2">
+					<trncs>         
+						<trnc status="C" trncs="CANX MD50 MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN CANR"/> 											
+                	</trncs>
+				</element>
+                <element desc="Approved Location Numeric Code" status="C" attribute="N" length="8" position="174" name="ALNC3">
+					<trncs>         
+						<trnc status="C" trncs="CANX MD50 MV50 TKTT CANR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN"/> 											
+                	</trncs>
+				</element>
+                <element desc="Approved Location Type" status="C" attribute="AN" length="1" position="182" name="ALTP3">
+					<trncs>         
+						<trnc status="C" trncs="CANX MD50 MV50 TKTT CANR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN"/> 											
+                	</trncs>
+				</element>
+                <element desc="Stock Control Number 'From'" status="C" attribute="AN" length="16" position="183" name="SCNF3">
+					<trncs>         
+						<trnc status="C" trncs="CANX MD50 MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN CANR"/> 											
+                	</trncs>
+				</element>
+                <element desc="Stock Control Number 'To'" status="C" attribute="N" length="4" position="199" name="SCNT3">
+					<trncs>         
+						<trnc status="C" trncs="CANX MD50 MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN CANR"/> 											
+                	</trncs>
+				</element>
+                <element desc="Approved Location Numeric Code" status="C" attribute="N" length="8" position="203" name="ALNC4">
+					<trncs>         
+						<trnc status="C" trncs="CANX MD50 MV50 TKTT CANR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN"/> 											
+                	</trncs>
+				</element>
+                <element desc="Approved Location Type" status="C" attribute="AN" length="1" position="211" name="ALTP4">
+					<trncs>         
+						<trnc status="C" trncs="CANX MD50 MV50 TKTT CANR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN"/> 											
+                	</trncs>
+				</element>
+                <element desc="Stock Control Number 'From'" status="C" attribute="AN" length="16" position="212" name="SCNF4">
+					<trncs>         
+						<trnc status="C" trncs="CANX MD50 MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN CANR"/> 											
+                	</trncs>
+				</element>
+                <element desc="Stock Control Number 'To'" status="C" attribute="N" length="4" position="228" name="SCNT4">
+					<trncs>         
+						<trnc status="C" trncs="CANX MD50 MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS TASF ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN CANR"/> 											
+                	</trncs>
+				</element>
+                <element desc="Settlement Authorisation Code" status="C" attribute="AN" length="14" position="232" name="ESAC">
+					<trncs>         
+						<trnc status="C" trncs="CANX EMDA EMDS MV50 ACMR RFNC RFND CANR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="MD50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR CANN"/> 											
+                	</trncs>
+				</element>
+                <element desc="Data Input Status Indicator" status="C" attribute="AN" length="1" position="246" name="DISI">
+					<trncs>      
+						<trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="ACMR RFNC RFND"/>
+                		<trnc status="N/A" trncs="CANX EMDA EMDS MD50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR CANN CANR"/> 			
+                	</trncs>
+				</element>
+                <element desc="ISO Country Code" status="M" attribute="A" length="2" position="247" name="ISOC"/>
+                <element desc="Vendor ISO Country Code" status="C" attribute="A" length="2" position="249" name="VISO">
+                	<trncs>      
+						<trnc status="C" trncs="CANX EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN CANR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>
+                <element desc="Vendor Identification" status="C" attribute="AN" length="4" position="251" name="VNID">
+                    <trncs>      
+						<trnc status="C" trncs="CANX EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR CANN CANR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>
+                <element desc="Reserved Space" status="M" attribute="AN" length="1" position="255" name="RESD"/>
+            </elements>
+        </identifier>
+        
+      	<identifier name="IT03">
+            <elements>
+		         <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID">
+                     <trncs>      
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs="ACMR RFNC RFND"/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>
+                <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN">
+                     <trncs>      
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs="ACMR RFNC RFND"/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>      
+                <element desc="Related Ticket/Document Coupon Number Identifier" status="C" attribute="N" length="4" position="8" name="RCPN1">
+                	<trncs>
+						<trnc status="C" trncs=""/>
+                		<trnc status="M" trncs="RFNC RFND"/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element> 
+                <element desc="Related Ticket/Document Number" status="M" attribute="AN" length="15" position="12" name="RTDN1">
+                    <trncs>      
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs="ACMR RFNC RFND"/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>      
+                <element desc="Check-Digit" status="M" attribute="N" length="1" position="27" name="CDGT1">
+                    <trncs>      
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs="ACMR RFNC RFND"/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>      
+                <element desc="Related Ticket/Document Coupon Number Identifier" status="C" attribute="N" length="4" position="28" name="RCPN2">
+                    <trncs>
+						<trnc status="C" trncs="RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Related Ticket/Document Number" status="C" attribute="AN" length="15" position="32" name="RTDN2">
+                    <trncs>
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="47" name="CDGT2">
+                    <trncs>
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>	
+                <element desc="Related Ticket/Document Coupon Number Identifier" status="C" attribute="N" length="4" position="48" name="RCPN3">
+                    <trncs>
+						<trnc status="C" trncs="RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Related Ticket/Document Number" status="C" attribute="AN" length="15" position="52" name="RTDN3">
+                    <trncs>
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>	
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="67" name="CDGT3">
+                    <trncs>
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>	
+                <element desc="Related Ticket/Document Coupon Number Identifier" status="C" attribute="N" length="4" position="68" name="RCPN4">
+                    <trncs>
+						<trnc status="C" trncs="RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Related Ticket/Document Number" status="C" attribute="AN" length="15" position="72" name="RTDN4">
+                    <trncs>
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>	
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="87" name="CDGT4">     
+                    <trncs>
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs> 
+                </element>	 
+                <element desc="Related Ticket/Document Coupon Number Identifier" status="C" attribute="N" length="4" position="88" name="RCPN5">
+                    <trncs>
+						<trnc status="C" trncs="RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Related Ticket/Document Number" status="C" attribute="AN" length="15" position="92" name="RTDN5">
+                	<trncs>
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>	
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="107" name="CDGT5">
+                    <trncs>
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs> 
+                </element>	 
+                <element desc="Related Ticket/Document Coupon Number Identifier" status="C" attribute="N" length="4" position="108" name="RCPN6">
+                  	<trncs>
+						<trnc status="C" trncs="RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Related Ticket/Document Number" status="C" attribute="AN" length="15" position="112" name="RTDN6">
+                    <trncs>
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>  
+                </element>	
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="127" name="CDGT6">
+                    <trncs>
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>  
+                </element>	
+                <element desc="Related Ticket/Document Coupon Number Identifier" status="C" attribute="N" length="4" position="128" name="RCPN7">
+                    <trncs>
+						<trnc status="C" trncs="RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Related Ticket/Document Number" status="C" attribute="AN" length="15" position="132" name="RTDN7">
+                    <trncs>
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>	
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="147" name="CDGT7">
+                   	<trncs>
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>	
+                <element desc="Date of Issue Related Document" status="C" attribute="N" length="6" position="148" name="DIRD">
+                    <trncs>						
+                    	<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs="ACMR RFNC RFND"/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>	
+                <element desc="Tour Code" status="C" attribute="AN" length="15" position="154" name="TOUR">
+                    <trncs>
+						<trnc status="C" trncs="RCSM ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Waiver Code" status="C" attribute="AN" length="14" position="169" name="WAVR">
+                    
+                </element>	
+                <element desc="Reason for Memo Issuance Code" status="C" attribute="AN" length="5" position="183" name="RMIC">
+                    <trncs>
+						<trnc status="C" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RCSM ACMR RFNC RFND"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Reserved Space" status="M" attribute="AN" length="68" position="188" name="RESD">
+                	<trncs>
+                		<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs="ACMR RFNC RFND"/>
+                		<trnc status="N/A" trncs=""/>
+                	</trncs> 	
+               	</element>
+        	</elements>
+        </identifier>
+        
+        <identifier name="IT04">
+            <elements>
+                <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50 TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>
+                </element>
+                <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50 TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>
+                </element>
+                <element desc="PNR Reference and/or Airline Data" status="C" attribute="AN" length="13" position="8" name="PNRR">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS MD50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>  
+                </element>              
+                <element desc="True Origin/Destination City Codes" status="C" attribute="AN" length="14" position="21" name="TODC">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="MD50"/>   	
+                	</trncs> 
+                </element>
+                <element desc="Reserved Space" status="M" attribute="AN" length="4" position="35" name="RESD1">
+                  	<trncs>
+                	    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50 TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>
+                </element>
+                <element desc="Ticketing Mode Indicator" status="M" attribute="AN" length="1" position="39" name="TKMI">
+					<trncs>
+                	    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50 TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>               
+                </element>
+                <element desc="Original Issue Information" status="C" attribute="AN" length="32" position="40" name="ORIN">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS MD50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Tour Code" status="C" attribute="AN" length="15" position="72" name="TOUR">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS MD50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Fare" status="M" attribute="AN" length="11" position="87" name="FARE">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50 TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>                
+                </element>
+                <element desc="Equivalent Fare Paid" status="C" attribute="AN" length="11" position="98" name="EQFR">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS MD50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Tax" status="C" attribute="AN" length="11" position="109" name="TAXA1">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS MD50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>     
+                </element>           
+                <element desc="Tax" status="C" attribute="AN" length="11" position="120" name="TAXA2">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="MD50"/>   	
+                	</trncs>  
+                </element>              
+                <element desc="Tax" status="C" attribute="AN" length="11" position="131" name="TAXA3">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="MD50"/>   	
+                	</trncs>
+                </element>                  
+                <element desc="Total" status="M" attribute="AN" length="11" position="142" name="TOTL">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="MD50 EMDA EMDS TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>                
+                </element>
+                <element desc="Neutral Ticketing System Identifier" status="C" attribute="AN" length="4" position="153" name="NTSI">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="MD50"/>   	
+                	</trncs>  
+                </element>                
+                <element desc="Servicing Airline/System Provider Identifier" status="C" attribute="AN" length="4" position="157" name="SASI">
+                   	<trncs>
+                	    <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50"/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>    
+                <element desc="Client Identification" status="C" attribute="AN" length="8" position="161" name="CLID">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS MD50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>
+                </element> 
+                <element desc="Booking Agent Identification" status="C" attribute="AN" length="6" position="169" name="BAID">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS MD50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Passenger Specific Data" status="C" attribute="AN" length="49" position="175" name="PXDA">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="MD50"/>   	
+                	</trncs> 
+                </element>
+                <element desc="Validating Location Numeric Code" status="C" attribute="N" length="8" position="224" name="VLNC">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS MD50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Booking Agency/Location Number" status="C" attribute="AN" length="10" position="232" name="BOON">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS MD50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Booking Entity Outlet Type" status="C" attribute="AN" length="1" position="242" name="BEOT">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS MD50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Reserved Space" status="M" attribute="AN" length="13" position="243" name="RESD2">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50 TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>                 
+                </element>
+            </elements>
+        </identifier>
+        
+        <identifier name="IT05">
+            <elements>
+                <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+                <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN"/>
+                <element desc="PAmount Entered by Agent" status="C" attribute="N" length="11" position="8" name="AEBA">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	
+                	</trncs> 
+                </element>
+                <element desc="Reserved Space" status="M" attribute="AN" length="11" position="19" name="RESD1"/>
+                <element desc="Tax/Miscellaneous Fee Type" status="C" attribute="AN" length="8" position="30" name="TMFT1">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Tax/Miscellaneous Fee Amount" status="C" attribute="N" length="11" position="38" name="TMFA1">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Tax/Miscellaneous Fee Type" status="C" attribute="AN" length="8" position="49" name="TMFT2">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>	
+                <element desc="Tax/Miscellaneous Fee Amount" status="C" attribute="N" length="11" position="57" name="TMFA2">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Tax/Miscellaneous Fee Type" status="C" attribute="AN" length="8" position="68" name="TMFT3">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Tax/Miscellaneous Fee Amount" status="C" attribute="N" length="11" position="76" name="TMFA3">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>    
+                </element>	
+                <element desc="Ticket/Document Amount" status="M" attribute="N" length="11" position="87" name="TDAM"/>
+                <element desc="Currency Type" status="M" attribute="AN" length="4" position="98" name="CUTP"/>
+                <element desc="Tax on Commission Amount" status="C" attribute="N" length="11" position="102" name="TOCA">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS MD50 TASF TKTT ACMR RFNC RFND"/>   	
+                	</trncs> 
+                </element>
+				<element desc="Reserved Space" status="M" attribute="AN" length="1" position="113" name="RESD2"/>                	
+                <element desc="Tax/Miscellaneous Fee Type" status="C" attribute="AN" length="8" position="114" name="TMFT4">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Tax/Miscellaneous Fee Amount" status="C" attribute="N" length="11" position="122" name="TMFA4">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Tax/Miscellaneous Fee Type" status="C" attribute="AN" length="8" position="133" name="TMFT5">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Tax/Miscellaneous Fee Amount" status="C" attribute="N" length="11" position="141" name="TMFA5">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Tax/Miscellaneous Fee Type" status="C" attribute="AN" length="8" position="152" name="TMFT6">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Tax/Miscellaneous Fee Amount" status="C" attribute="N" length="11" position="160" name="TMFA6">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>  
+                </element>
+                <element desc="Commission Type" status="C" attribute="AN" length="6" position="171" name="COTP1">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Commission Rate" status="C" attribute="N" length="5" position="177" name="CORT1">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Commission Amount" status="C" attribute="N" length="11" position="182" name="COAM1">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Commission Type" status="C" attribute="AN" length="6" position="193" name="COTP2">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	
+                	</trncs> 
+                </element>
+                <element desc="Commission Rate" status="C" attribute="N" length="5" position="199" name="CORT2">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	
+                	</trncs> 
+                </element>
+                <element desc="Commission Amount" status="C" attribute="N" length="11" position="204" name="COAM2"> 
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Commission Type" status="C" attribute="AN" length="6" position="215" name="COTP3">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	
+                	</trncs> 
+                </element>
+                <element desc="Commission Rate" status="C" attribute="N" length="5" position="221" name="CORT3">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	
+                	</trncs> 
+                </element>
+                <element desc="Commission Amount" status="C" attribute="N" length="11" position="226" name="COAM3"> 
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	
+                	</trncs>            
+                </element>     	
+                <element desc="Net-Reporting Indicator" status="C" attribute="AN" length="2" position="237" name="NRID">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Amount Paid by Customer" status="C" attribute="N" length="11" position="239" name="APBC">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	
+                	</trncs> 
+                </element>
+                <element desc="Tax on Commission Type" status="C" attribute="AN" length="6" position="250" name="TCTP">
+                    <trncs>
+                        <trnc status="C" trncs="MV50 ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS MD50 TASF TKTT ACMR RFNC RFND"/>   	
+                	</trncs> 
+                </element>
+            </elements>
+        </identifier>
+        
+       	<identifier name="IT06">
+            <elements>
+                <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID">
+                	<trncs>
+                        <trnc status="C" trncs="EMDS MV50"/>
+                		<trnc status="M" trncs="EMDA TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>
+                </element>
+                <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN">
+                    <trncs>
+                        <trnc status="C" trncs="EMDS MV50"/>
+                		<trnc status="M" trncs="EMDA TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>
+                </element>
+                <element desc="Origin Airport/City Code" status="C" attribute="A" length="5" position="8" name="ORAC1">
+                   	<trncs>
+                        <trnc status="C" trncs="EMDS MV50"/>
+                		<trnc status="M" trncs="EMDA TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>
+                </element>
+                <element desc="Destination Airport/City Code" status="C" attribute="A" length="5" position="13" name="DSTC1">
+                 	<trncs>
+                        <trnc status="C" trncs="EMDS MV50"/>
+                		<trnc status="M" trncs="EMDA TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>
+                </element>
+                <element desc="Frequent Flyer Reference" status="C" attribute="AN" length="16" position="18" name="FFRF1">
+                    <trncs>
+                        <trnc status="C" trncs="EMDS MV50 EMDA TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs>
+                </element>
+                <element desc="Carrier" status="C" attribute="AN" length="4" position="34" name="CARR1">
+                    <trncs>
+                        <trnc status="C" trncs="EMDS MV50 TKTT"/>
+                		<trnc status="M" trncs="EMDA"/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Reserved Space" status="C" attribute="AN" length="1" position="38" name="RESD1">
+                	<trncs>
+                        <trnc status="C" trncs="EMDS MV50"/>
+                		<trnc status="M" trncs="EMDA TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>	
+                <element desc="Reservation Booking Designator" status="C" attribute="AN" length="2" position="39" name="RBKD1">
+                    <trncs>
+                        <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Flight Date" status="C" attribute="AN" length="5" position="41" name="FTDA1">
+                    <trncs>
+                        <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="'Not Valid Before' Date" status="C" attribute="AN" length="5" position="46" name="NBDA1">
+                    <trncs>
+                        <trnc status="C" trncs="MV50 TKTT EMDA EMDS"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="'Not Valid After' Date" status="C" attribute="AN" length="5" position="51" name="NADA1">
+                    <trncs>
+                        <trnc status="C" trncs="MV50 TKTT EMDA EMDS"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Fare Basis/Ticket Designator" status="C" attribute="AN" length="15" position="56" name="FBTD1">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS"/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Flight Number" status="C" attribute="AN" length="5" position="71" name="FTNR1">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Flight Departure Time" status="C" attribute="AN" length="5" position="76" name="FTDT1">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Free Baggage Allowance" status="C" attribute="AN" length="3" position="81" name="FBAL1">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Flight Booking Status" status="C" attribute="A" length="2" position="84" name="FBST1">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Segment Identifier" status="C" attribute="N" length="1" position="86" name="SEGI1">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50 EMDS"/>
+                		<trnc status="M" trncs="EMDA  TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Stopover Code" status="C" attribute="A" length="1" position="87" name="STPO1">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50 EMDA EMDS TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+                </element>              
+                <element desc="Origin Airport/City Code" status="C" attribute="A" length="5" position="88" name="ORAC2">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50 EMDS"/>
+                		<trnc status="M" trncs="EMDA TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Destination Airport/City Code" status="C" attribute="A" length="5" position="93" name="DSTC2">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50 EMDS"/>
+                		<trnc status="M" trncs="EMDA TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Frequent Flyer Reference" status="C" attribute="AN" length="16" position="98" name="FFRF2">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDS EMDA TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Carrier" status="C" attribute="AN" length="4" position="114" name="CARR2">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDS TKTT"/>
+                		<trnc status="M" trncs="EMDA"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Reserved Space" status="C" attribute="AN" length="1" position="118" name="RESD2">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50 EMDS"/>
+                		<trnc status="M" trncs="EMDA TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>	
+                <element desc="Reservation Booking Designator" status="C" attribute="AN" length="2" position="119" name="RBKD2">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Flight Date" status="C" attribute="AN" length="5" position="121" name="FTDA2">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="'Not Valid Before' Date" status="C" attribute="AN" length="5" position="126" name="NBDA2">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="'Not Valid After' Date" status="C" attribute="AN" length="5" position="131" name="NADA2">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Fare Basis/Ticket Designator" status="C" attribute="AN" length="15" position="136" name="FBTD2">
+                	<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MV50"/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Flight Number" status="C" attribute="AN" length="5" position="151" name="FTNR2">
+                    <trncs>
+                   	    <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Flight Departure Time" status="C" attribute="AN" length="5" position="156" name="FTDT2">
+                    <trncs>
+                   	    <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Free Baggage Allowance" status="C" attribute="AN" length="3" position="161" name="FBAL2">
+                    <trncs>
+                   	    <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Flight Booking Status" status="C" attribute="A" length="2" position="164" name="FBST2">
+                    <trncs>
+                   	    <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Segment Identifier" status="C" attribute="N" length="1" position="166" name="SEGI2">
+                	<trncs>
+                   	    <trnc status="C" trncs="MV50 EMDS"/>
+                		<trnc status="M" trncs="EMDA TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Stopover Code" status="C" attribute="A" length="1" position="167" name="STPO2">
+                	<trncs>
+                   	    <trnc status="C" trncs="MV50 EMDS EMDA TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Origin Airport/City Code" status="C" attribute="A" length="5" position="168" name="ORAC3">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50 EMDS"/>
+                		<trnc status="M" trncs="EMDA TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Destination Airport/City Code" status="C" attribute="A" length="5" position="173" name="DSTC3">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50 EMDS"/>
+                		<trnc status="M" trncs="EMDA TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Frequent Flyer Reference" status="C" attribute="AN" length="16" position="178" name="FFRF3">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDS EMDA TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Carrier" status="C" attribute="AN" length="4" position="194" name="CARR3">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 EMDS TKTT"/>
+                		<trnc status="M" trncs="EMDA"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Reserved Space" status="C" attribute="AN" length="1" position="198" name="RESD3">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50 EMDS"/>
+                		<trnc status="M" trncs="EMDA TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>	
+                <element desc="Reservation Booking Designator" status="C" attribute="AN" length="2" position="199" name="RBKD3">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Flight Date" status="C" attribute="AN" length="5" position="201" name="FTDA3">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="'Not Valid Before' Date" status="C" attribute="AN" length="5" position="206" name="NBDA3">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="'Not Valid After' Date" status="C" attribute="AN" length="5" position="211" name="NADA3">
+                    <trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Fare Basis/Ticket Designator" status="C" attribute="AN" length="15" position="216" name="FBTD3">
+                	<trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MV50"/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Flight Number" status="C" attribute="AN" length="5" position="231" name="FTNR3">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Flight Departure Time" status="C" attribute="AN" length="5" position="236" name="FTDT3">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Free Baggage Allowance" status="C" attribute="AN" length="3" position="241" name="FBAL3">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Flight Booking Status" status="C" attribute="A" length="2" position="244" name="FBST3">
+                    <trncs>
+                	    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Segment Identifier" status="C" attribute="N" length="1" position="246" name="SEGI3">
+                	<trncs>
+                	    <trnc status="C" trncs="MV50 EMDS"/>
+                		<trnc status="M" trncs="EMDA TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Stopover Code" status="C" attribute="A" length="1" position="247" name="STPO3">
+                	<trncs>
+                 	    <trnc status="C" trncs="MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs>
+                </element>           
+                <element desc="Reserved Space" status="C" attribute="AN" length="8" position="248" name="RESD4">
+                	<trncs>
+                  	    <trnc status="C" trncs="MV50 EMDS"/>
+                		<trnc status="M" trncs="EMDA TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+            </elements>
+        </identifier>
+        
+        <identifier name="IT0G">
+            <elements>
+                <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+                <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN"/>
+	            <element desc="EMD Coupon Number" status="M" attribute="N" length="1" position="8" name="EMCP"/>
+	            <element desc="EMD Coupon Value" status="C" attribute="N" length="11" position="9" name="EMCV">
+	            	<trncs>
+                	    <trnc status="C" trncs="EMDA EMDS"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+	            <element desc="EMD Coupon Currency" status="M" attribute="AN" length="4" position="20" name="CUTP"/>
+	            <element desc="EMD Related Ticket Number" status="C" attribute="AN" length="15" position="24" name="EMRT">
+	            	<trncs>
+                	    <trnc status="C" trncs="EMDS"/>
+                		<trnc status="M" trncs="EMDA"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+	            <element desc="EMD Related Coupon Number" status="C" attribute="N" length="1" position="39" name="EMRC">
+	            	<trncs>
+                	    <trnc status="C" trncs="EMDS"/>
+                		<trnc status="M" trncs="EMDA"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+	            <element desc="EMD Reason for Issuance Sub Code" status="C" attribute="AN" length="3" position="40" name="EMSC">
+	            	<trncs>
+                	    <trnc status="C" trncs="EMDS EMDA"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>	
+                </element>
+	            <element desc="EMD Fee Owner Airline Designator" status="C" attribute="AN" length="2" position="43" name="EMOC">
+	            	<trncs>
+                	    <trnc status="C" trncs="EMDS EMDA"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>	
+                </element>
+                <element desc="EMD Excess Baggage Over Allowance Qualifier" status="C" attribute="AN" length="1" position="45" name="XBOA">
+                	<trncs>
+                	    <trnc status="C" trncs="EMDS EMDA"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>	
+                </element>
+                <element desc="EMD Excess Baggage Rate per Unit" status="C" attribute="AN" length="12" position="46" name="XBRU">
+                	<trncs>
+                	    <trnc status="C" trncs="EMDS EMDA"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>	
+                </element>
+	            <element desc="EMD Excess Baggage Total Number in Excess" status="C" attribute="AN" length="12" position="58" name="XBNE">
+	            	<trncs>
+                	    <trnc status="C" trncs="EMDS EMDA"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>	
+                </element>
+	            <element desc="EMD Remarks" status="C" attribute="AN" length="70" position="70" name="EMRM">    
+	            	<trncs>
+                	    <trnc status="C" trncs="EMDS EMDA"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>	
+                </element>
+	            <element desc="EMD Consumed at Issuance Indicator" status="C" attribute="AN" length="1" position="140" name="EMCI"/>
+	            <element desc="EMD Excess Baggage Currency Type" status="C" attribute="A" length="3" position="141" name="XBCT">  
+	            	<trncs>
+                	    <trnc status="C" trncs="EMDS EMDA"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>	            
+                </element>
+	            <element desc="Reserved Space" status="M" attribute="AN" length="112" position="144" name="RESD"/>
+            </elements>
+        </identifier> 
+        
+       	<identifier name="IT07">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID">
+               		<trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MV50"/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN">
+               		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MV50"/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Fare Calculation Area" status="C" attribute="AN" length="87" position="8" name="FRCA1">
+               		<trncs>
+                	    <trnc status="C" trncs="EMDA EMDS MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+          	   <element desc="Fare Calculation Sequence Number" status="C" attribute="N" length="1" position="95" name="FRCS1">
+          	   		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+               <element desc="Fare Calculation Area" status="C" attribute="AN" length="87" position="96" name="FRCA2">	
+                	<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+               <element desc="Fare Calculation Sequence Number" status="C" attribute="N" length="1" position="183" name="FRCS2">
+                	<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>
+               <element desc="Fare Calculation Mode Indicator" status="M" attribute="AN" length="1" position="184" name="FCMI">
+               		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MV50"/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Fare Calculation Pricing Indicator" status="C" attribute="AN" length="1" position="185" name="FCPI">	
+                     <trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MV50"/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+               </element>	    
+               <element desc="Reserved Space" status="M" attribute="AN" length="70" position="186" name="RESD">
+               		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MV50"/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+            </elements>
+        </identifier>  
+            
+       	<identifier name="IT08">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+               <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN"/>
+               <element desc="Form of Payment Account Number" status="C" attribute="AN" length="19" position="8" name="FPAC1">
+               		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>
+                </element>
+               <element desc="Form of Payment Amount" status="C" attribute="N" length="11" position="27" name="FPAM1"/>               
+               <element desc="Approval Code" status="C" attribute="AN" length="6" position="38" name="APLC1">
+               		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR RFNC RFND ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>               
+                </element>
+               <element desc="Currency Type" status="C" attribute="AN" length="4" position="44" name="CUTP1"/>               
+               <element desc="Extended Payment Code" status="C" attribute="AN" length="2" position="48" name="EXPC1"> 
+               		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>   	                	
+               		</trncs>           
+               </element>
+               <element desc="Form of Payment Type" status="C" attribute="AN" length="10" position="50" name="FPTP1"/>
+               <element desc="Expiry Date" status="C" attribute="AN" length="4" position="60" name="EXDA1">
+               		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR RFNC RFND ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>           
+                </element>
+               <element desc="Customer File Reference" status="C" attribute="AN" length="27" position="64" name="CSTF1">
+               		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs> 
+               </element>
+               <element desc="Credit Card Corporate Contract" status="C" attribute="AN" length="1" position="91" name="CRCC1">
+               		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs> 
+               </element>
+		       <element desc="Address Verification Code" status="C" attribute="AN" length="2" position="92" name="AVCD1">	
+		       		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>    
+               </element>
+		       <element desc="Source of Approval Code" status="C" attribute="AN" length="1" position="94" name="SAPP1">
+		       		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>   
+               </element>   
+		       <element desc="Form of Payment Transaction Information" status="C" attribute="AN" length="25" position="95" name="FPTI1">
+		       		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs> 
+               </element>
+		       <element desc="Authorised Amount" status="C" attribute="AN" length="11" position="120" name="AUTA1"> <!-- AUTA must be numeric. -->  
+		       		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>     
+               </element>
+		       <element desc="Form of Payment Account Number" status="C" attribute="AN" length="19" position="131" name="FPAC2">    
+		       		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>            
+               </element>
+               <element desc="Form of Payment Amount" status="C" attribute="N" length="11" position="150" name="FPAM2"/>               
+               <element desc="Approval Code" status="C" attribute="AN" length="6" position="161" name="APLC2">           
+               		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR RFNC RFND ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>     
+               </element>
+               <element desc="Currency Type" status="C" attribute="AN" length="4" position="167" name="CUTP2"/>               
+               <element desc="Extended Payment Code" status="C" attribute="AN" length="2" position="171" name="EXPC2">  
+               		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR RFNC RFND ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>          
+               </element>
+               <element desc="Form of Payment Type" status="C" attribute="AN" length="10" position="173" name="FPTP2"/>
+               <element desc="Expiry Date" status="C" attribute="AN" length="4" position="183" name="EXDA2">          
+               		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR RFNC RFND ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs> 
+               </element>
+               <element desc="Customer File Reference" status="C" attribute="AN" length="27" position="187" name="CSTF2">
+               		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs> 
+               </element>
+               <element desc="Credit Card Corporate Contract" status="C" attribute="AN" length="1" position="214" name="CRCC2">
+               		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs> 
+               </element>
+		       <element desc="Address Verification Code" status="C" attribute="AN" length="2" position="215" name="AVCD2">	   
+		       		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs> 
+               </element>
+		       <element desc="Source of Approval Code" status="C" attribute="AN" length="1" position="217" name="SAPP2">   
+		       		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>   
+               </element>
+		       <element desc="Form of Payment Transaction Information" status="C" attribute="AN" length="25" position="218" name="FPTI2">
+		       		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs> 
+               </element>
+		       <element desc="Authorised Amount" status="C" attribute="AN" length="11" position="243" name="AUTA2">  
+		       		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>  
+               </element>
+		       <element desc="Card Verification Value Result" status="C" attribute="AN" length="1" position="254" name="CVVR1">
+		       		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+               </element>
+		       <element desc="Card Verification Value Result" status="C" attribute="AN" length="1" position="255" name="CVVR2">
+		       		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS MD50 MV50 TASF TKTT ACMR RFNC RFND ADMA ADMD ADNT RCSM SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 	           
+               </element>
+            </elements>
+        </identifier> 
+        
+        <identifier name="IT0Y">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>               
+               <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN"/>
+               <element desc="Agency Data/Agent Use" status="C" attribute="AN" length="20" position="8" name="AGTA">
+               		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>
+               <element desc="Agency Data/Receiving Order Code" status="C" attribute="AN" length="12" position="28" name="AGTO">
+                    <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>                              
+               <element desc="Agency Data/Section Code" status="C" attribute="AN" length="6" position="40" name="AGTS">
+                    <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>              
+               <element desc="Agency Data/Sales Staff Code" status="C" attribute="AN" length="6" position="46" name="AGTU">  
+                    <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>  
+               <element desc="Agency Data/Routing Code" status="C" attribute="AN" length="3" position="52" name="AGTR">
+                    <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>    
+               <element desc="Agency Data/Customer Code" status="C" attribute="AN" length="10" position="55" name="AGTC">
+                    <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>    
+               <element desc="Agency Data/Paying In Code" status="C" attribute="AN" length="1" position="65" name="AGTP">
+                    <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>      
+               <element desc="Agency Data/Free Code" status="C" attribute="AN" length="10" position="66" name="AGTF">
+                    <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>    
+               <element desc="Agency Data/Package Tour Code" status="C" attribute="AN" length="15" position="76" name="AGTT">
+                    <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>                 
+               <element desc="Agency Data/Rebate Code 1" status="C" attribute="AN" length="7" position="91" name="AGTK">
+                    <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>    
+               <element desc="Agency Data/Rebate Code 2" status="C" attribute="AN" length="7" position="98" name="AGTB">
+                    <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>   
+               <element desc="Agency Data/Pricing Code" status="C" attribute="AN" length="7" position="105" name="AGTE"> 
+                    <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>  
+               <element desc="Reserved Space" status="M" attribute="AN" length="7" position="112" name="RESD"/> 
+               <element desc="Credit Card Company Data/Organisation Code" status="C" attribute="AN" length="2" position="119" name="CCOC">
+                    <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>   
+           	   <element desc="Credit Card Company Data/Other Expense Number" status="C" attribute="AN" length="14" position="121" name="CCEN">
+           	        <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>   
+           	   <element desc="Credit Card Company Data/Remarks" status="C" attribute="AN" length="10" position="135" name="CCRM1">
+           	        <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>   
+           	   <element desc="Credit Card Company Data/Remarks" status="C" attribute="AN" length="10" position="145" name="CCRM2">
+           	        <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>   
+           	   <element desc="Credit Card Company Data/Remarks" status="C" attribute="AN" length="10" position="155" name="CCRM3"> 
+           	        <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>  
+           	   <element desc="Credit Card Company Data/Card Holders Name" status="C" attribute="AN" length="26" position="165" name="CCHN">
+           	        <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>   
+               <element desc="Signed For Amount" status="C" attribute="AN" length="11" position="191" name="SFAM">
+                    <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>  
+           	   <element desc="Currency Type" status="C" attribute="AN" length="4" position="202" name="CUTP">
+           	        <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA MD50 RFND TASF MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+               </element>  
+           	   <element desc="Reserved Space" status="M" attribute="AN" length="50" position="206" name="RESD"/>
+            </elements>
+        </identifier> 
+        
+        <identifier name="IT09">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID">
+               		<trncs>
+                   	    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50 TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN">
+               		<trncs>
+                   	    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50 TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Endorsements/Restrictions" status="C" attribute="AN" length="147" position="8" name="ENRS">
+                   	<trncs>
+                   	    <trnc status="C" trncs="MV50 EMDA EMDS MD50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 	                      
+                </element>
+          	   <element desc="Form of Payment Information" status="C" attribute="AN" length="50" position="155" name="FPIN1">
+          	   		<trncs>
+                   	    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50 TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+          	   		</trncs>
+          	   </element>
+               <element desc="Form of Payment Information" status="C" attribute="AN" length="50" position="205" name="FPIN2">
+               		<trncs>
+                   	    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50 TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>           
+               <element desc="Reserved Space" status="M" attribute="AN" length="1" position="255" name="RESD">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50 TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+            </elements>
+        </identifier> 
+        
+        <identifier name="IT0A">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Reason for Issuance Description" status="C" attribute="AN" length="86" position="8" name="RFID">
+          	   		<trncs>
+               		    <trnc status="C" trncs="EMDA EMDS MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="MD50"/>   	                	
+                	</trncs> 	
+               </element>
+          	   <element desc="Bank Exchange Rate" status="C" attribute="AN" length="13" position="94" name="BERA">
+               		<trncs>
+               		    <trnc status="C" trncs="MD50 MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+               </element>
+               <element desc="In Connection with Document Number" status="C" attribute="AN" length="15" position="107" name="ICDN">           
+               		<trncs>
+               		    <trnc status="C" trncs="MD50 MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+               </element>
+               <element desc="Check-Digit" status="C" attribute="AN" length="1" position="122" name="CDGT">
+          	   		<trncs>
+	            		<trnc status="M" trncs=""/>
+	            		<trnc status="C" trncs="MD50 MV50"/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>
+                	</trncs> 
+               </element>
+          	   <element desc="Amount in Letters" status="C" attribute="AN" length="72" position="123" name="AMIL">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS MD50"/>   	                	
+                	</trncs> 
+               </element>
+               <element desc="Reason for Issuance Code" status="C" attribute="AN" length="1" position="195" name="RFIC">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+               </element>
+               <element desc="Multiple Purpose Document-Other Charges" status="C" attribute="AN" length="11" position="196" name="MPOC">
+          	   		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS MD50"/>   	                	
+                	</trncs> 
+               </element>
+          	   <element desc="Multiple Purpose Document-Equivalent" status="C" attribute="AN" length="11" position="207" name="MPEQ">   
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS MD50"/>   	                	
+                	</trncs> 
+               </element>
+               <element desc="Multiple Purpose Document-Exchange Value" status="C" attribute="AN" length="11" position="218" name="MPEV">   
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS MD50"/>   	                	
+                	</trncs> 
+               </element>
+               <element desc="Multiple Purpose Document-Service Charge" status="C" attribute="AN" length="11" position="229" name="MPSC">              
+          	   		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS MD50"/>   	                	
+                	</trncs> 
+               </element>
+          	   <element desc="Multiple Purpose Document-Ticket Total" status="C" attribute="AN" length="11" position="240" name="MPTX">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS MD50"/>   	                	
+                	</trncs> 
+               </element>
+               <element desc="Reserved Space" status="M" attribute="AN" length="5" position="251" name="RESD">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs="EMDA EMDS MD50"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+            </elements>
+        </identifier> 
+        
+       	<identifier name="IT0B">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID">
+               		<trncs>
+               		    <trnc status="C" trncs="MD50 MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN">
+               		<trncs>
+               		    <trnc status="C" trncs="MD50 MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+          	   <element desc="Optional Agency/Airline Information" status="C" attribute="AN" length="88" position="8" name="OAAI">
+               		<trncs>
+               		    <trnc status="C" trncs="MD50 MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+                </element>
+               <element desc="Reserved Space" status="M" attribute="AN" length="160" position="96" name="RESD">
+					<trncs>
+               		    <trnc status="C" trncs="MD50 MV50 TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+					</trncs>
+               </element>
+            </elements>
+        </identifier> 
+        
+        <identifier name="IT0C">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID">
+               		<trncs>
+               		    <trnc status="C" trncs="MD50 MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN">
+               		<trncs>
+               		    <trnc status="C" trncs="MD50 MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Reserved Space" status="M" attribute="AN" length="1" position="8" name="RESD1">
+               		<trncs>
+               		    <trnc status="C" trncs="MD50 MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Print Line Identifier" status="C" attribute="AN" length="1" position="9" name="PLID1">
+					<trncs>
+               		    <trnc status="C" trncs="MD50 MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+					</trncs>
+               </element>
+          	   <element desc="Print Line Text" status="C" attribute="AN" length="86" position="10" name="PLTX1">
+               		<trncs>
+               		    <trnc status="C" trncs="MD50 MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+               </element>
+               <element desc="Print Line Identifier" status="C" attribute="AN" length="1" position="96" name="PLID2">
+          	   		<trncs>
+               		    <trnc status="C" trncs="MD50 MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+               </element>
+          	   <element desc="Print Line Text" status="C" attribute="AN" length="86" position="97" name="PLTX2">
+               		<trncs>
+               		    <trnc status="C" trncs="MD50 MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs> 
+               </element>
+               <element desc="Reserved Space" status="M" attribute="AN" length="73" position="183" name="RESD2">
+               		<trncs>
+               		    <trnc status="C" trncs="MD50 MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+            </elements>
+        </identifier> 
+        
+        <identifier name="IT0D">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID">
+					<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+					</trncs>
+               </element>
+               <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Reserved Space" status="M" attribute="AN" length="1" position="8" name="RESD1">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Coupon Number" status="M" attribute="N" length="1" position="9" name="CPNR">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+          	   <element desc="Print Line Identifier" status="C" attribute="AN" length="1" position="10" name="PLID1">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+          	   </element>
+               <element desc="Print Line Text" status="C" attribute="AN" length="86" position="11" name="PLTX1">           
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Print Line Identifier" status="C" attribute="AN" length="1" position="97" name="PLID2">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Print Line Text" status="C" attribute="AN" length="86" position="98" name="PLTX2"> 
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Reserved Space" status="M" attribute="AN" length="72" position="184" name="RESD2">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+            </elements>
+        </identifier> 
+        
+       	<identifier name="IT0E">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>               
+               <element desc="Print Line Identifier" status="C" attribute="AN" length="1" position="8" name="PLID1">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Sponsor Information" status="C" attribute="AN" length="34" position="9" name="SPIN1">          	   
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+          	   <element desc="Print Line Identifier" status="C" attribute="AN" length="1" position="43" name="PLID2">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Sponsor Information" status="C" attribute="AN" length="34" position="44" name="SPIN2">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Print Line Identifier" status="C" attribute="AN" length="1" position="78" name="PLID3">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+              	</element>
+               <element desc="Sponsor Information" status="C" attribute="AN" length="34" position="79" name="SPIN3">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Print Line Identifier" status="C" attribute="AN" length="1" position="113" name="PLID4">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Sponsor Information" status="C" attribute="AN" length="34" position="114" name="SPIN4">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Print Line Identifier" status="C" attribute="AN" length="1" position="148" name="PLID5">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Sponsor Information" status="C" attribute="AN" length="34" position="149" name="SPIN5">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Print Line Identifier" status="C" attribute="AN" length="1" position="183" name="PLID6">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Sponsor Information" status="C" attribute="AN" length="34" position="184" name="SPIN6">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+               <element desc="Reserved Space" status="M" attribute="AN" length="38" position="218" name="RESD">
+               		<trncs>
+               		    <trnc status="C" trncs="MV50"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+            </elements>
+        </identifier> 
+        
+       	<identifier name="IT0Z">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+               <element desc="Report Record Counter" status="M" attribute="N" length="11" position="2" name="RRDC"/>
+               <element desc="Reserved Space" status="M" attribute="AN" length="243" position="13" name="RESD"/>
+            </elements>
+        </identifier> 
+        
+        <!-- Record Identifier has error, use default IT0* -->
+        <identifier name="IT0*">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>               
+               <element desc="Reserved Space" status="M" attribute="AN" length="254" position="2" name="RESD"/>
+            </elements>
+        </identifier> 
+    </identifiers>
+</dish>

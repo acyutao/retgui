@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dish version="220">
+    <identifiers>
+    	<identifier name="IT01">
+            <elements>
+                <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>                	
+                <element desc="System Provider Reporting Period Ending Date" status="M" attribute="N" length="6" position="2" name="SPED"/>
+                <element desc="Reporting System Identifier" status="M" attribute="AN" length="4" position="8" name="RPSI"/>
+                <element desc="Handbook Revision Number" status="M" attribute="N" length="3" position="12" name="REVN"/>
+                <element desc="Test/Production Status" status="M" attribute="AN" length="4" position="15" name="TPST"/>
+                <element desc="Processing Date" status="M" attribute="N" length="6" position="19" name="PRDA"/>
+                <element desc="Processing Time" status="M" attribute="N" length="4" position="25" name="TIME"/>
+                <element desc="ISO Country Code" status="M" attribute="A" length="2" position="29" name="ISOC"/>
+                <element desc="File Type Sequence Number" status="C" attribute="AN" length="2" position="31" name="FTSN"/> <!-- 不一样  -->
+                <element desc="Reserved Space" status="M" attribute="AN" length="233" position="33" name="RESD"/> <!-- 不一样  -->
+            </elements>
+        </identifier>
+    
+        <identifier name="IT02">
+            <elements>
+                <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+                <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN"/>
+                <element desc="Agent Numeric Code" status="M" attribute="N" length="8" position="8" name="AGTN"/>
+                <element desc="Conjunction Ticket Indicator" status="C" attribute="AN" length="3" position="16" name="CJCP">
+                	<trncs>
+                		<trnc status="C" trncs="TKTT EMDS EMDA  "/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="CANX CANR CANN RFND RFNC ACMA ACMD ACNT SPCR ADMA ADMD ADNT SPDR TASF"/>
+                	</trncs>
+                </element>
+                <element desc="Coupon Use Indicator" status="C" attribute="AN" length="4" position="19" name="CPUI">
+					<trncs>
+                		<trnc status="C" trncs="RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs="CANX CANR TKTT EMDS EMDA TASF"/>
+                		<trnc status="N/A" trncs="CANN "/>
+                	</trncs>
+				</element>
+                <element desc="Date of Issue" status="M" attribute="N" length="6" position="23" name="DAIS"/>
+                <element desc="Statistical Code" status="C" attribute="AN" length="3" position="29" name="STAT">
+					<trncs>
+                		<trnc status="C" trncs="EMDS RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR TASF"/>
+                		<trnc status="M" trncs="TKTT EMDA"/>
+                		<trnc status="N/A" trncs="CANX CANN CANR"/>
+                	</trncs>
+				</element>
+                <element desc="Ticket/Document Number" status="M" attribute="AN" length="14" position="32" name="TDNR"/> <!-- 不一样开始  -->
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="46" name="CDGT1">
+					<trncs>
+                		<trnc status="C" trncs="ACMA ACMD ACNT SPCR ADMA ADMD ADNT SPDR"/>
+                		<trnc status="M" trncs="CANX CANR CANN TKTT EMDS EMDA RFND RFNC TASF"/>
+                		<trnc status="N/A" trncs=""/> 
+                    </trncs>
+				</element>
+                <element desc="Transaction Code" status="M" attribute="AN" length="4" position="47" name="TRNC"/>
+                <element desc="Ticketing Airline Code Number" status="M" attribute="AN" length="3" position="51" name="TACN"/>
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="54" name="CDGT2">
+                	<trncs>
+                		<trnc status="C" trncs=""/>
+                		<trnc status="M" trncs="CANX CANR TKTT EMDS EMDA RFND RFNC TASF ACMA ACMD ACNT SPCR ADMA ADMD ADNT SPDR"/>
+                		<trnc status="N/A" trncs="CANN"/> 
+                    </trncs>
+				</element>
+                <element desc="Passenger Name" status="C" attribute="AN" length="49" position="55" name="PXNM">
+					<trncs>					
+						<trnc status="C" trncs="RFND RFNC TASK"/>
+                		<trnc status="M" trncs="TKTT EMDS EMDA"/>
+                		<trnc status="N/A" trncs="CANX CANR CANN ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/> 										
+                	</trncs>
+				</element>
+                <element desc="Settlement Authorisation Code" status="C" attribute="AN" length="14" position="104" name="ESAC">
+					<trncs>
+						<trnc status="C" trncs="CANX CANR TKTT EMDS EMDA RFND RFNC TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="CANN ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/> 										
+                	</trncs>
+				</element>
+                <element desc="Data Input Status Indicator" status="C" attribute="AN" length="1" position="118" name="DISI">
+					<trncs>
+						<trnc status="C" trncs=""/>
+                		<trnc status="M" trncs="RFND RFNC"/>
+                		<trnc status="N/A" trncs="CANX CANN CANR TKTT EMDS EMDA ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR TASF"/> 										
+                	</trncs>
+				</element>
+                <element desc="ISO Country Code" status="M" attribute="A" length="2" position="119" name="ISOC"/>
+                <element desc="Reason for Issuance Code" status="C" attribute="AN" length="1" position="121" name="RFIC">
+					<trncs>
+						<trnc status="C" trncs=""/>
+                		<trnc status="M" trncs="EMDS EMDA"/>
+                		<trnc status="N/A" trncs="CANX CANN CANR TKTT RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR TASF"/> 										
+                	</trncs>
+				</element>
+                <element desc="PNR Reference and/or Airline Data" status="C" attribute="AN" length="13" position="122" name="PNRR">
+					<trncs>                		
+						<trnc status="C" trncs="EMDS EMDA TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="CANX CANN CANR RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR TASF"/> 										
+                	</trncs>
+				</element>
+                <element desc="True Origin/Destination City Codes" status="C" attribute="AN" length="10" position="135" name="TODC">
+					<trncs>                		
+						<trnc status="C" trncs="EMDS EMDA TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="CANX CANN CANR RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR TASF"/> 										
+                	</trncs>
+				</element>
+                <element desc="Ticketing Mode Indicator" status="M" attribute="AN" length="1" position="145" name="TKMI">
+					<trncs>         
+						<trnc status="C" trncs=""/>
+                		<trnc status="M" trncs="EMDS EMDA TKTT"/>
+                		<trnc status="N/A" trncs="CANX CANN CANR RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR TASF"/> 										
+                	</trncs>
+				</element>
+                <element desc="Tour Code" status="C" attribute="AN" length="15" position="146" name="TOUR">
+					<trncs>         
+						<trnc status="C" trncs="EMDS EMDA TKTT RFND RFNC"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="CANX CANN CANR ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR TASF"/> 										
+                	</trncs>
+				</element>
+                <element desc="Servicing Airline/System Provider Identifier" status="C" attribute="AN" length="4" position="161" name="SASI">
+					<trncs>         
+						<trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs="EMDS EMDA"/>
+                		<trnc status="N/A" trncs="CANX CANN CANR RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR TASF"/> 										
+                	</trncs>
+				</element>
+                <element desc="Booking Agent Identification" status="C" attribute="AN" length="6" position="165" name="BAID">
+					<trncs>         
+						<trnc status="C" trncs="EMDS EMDA TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="CANX CANN CANR RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR TASF"/> 										
+                	</trncs>
+				</element>
+                <element desc="Passenger Specific Data" status="C" attribute="AN" length="29" position="171" name="PXDA">
+					<trncs>         
+						<trnc status="C" trncs="EMDS EMDA TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="CANX CANN CANR RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR TASF"/> 										
+                	</trncs>
+				</element>
+                <element desc="Booking Entity Outlet Type" status="C" attribute="AN" length="1" position="200" name="BEOT">
+					<trncs>         
+						<trnc status="C" trncs="EMDS EMDA TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="CANX CANN CANR RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR TASF"/> 											
+                	</trncs>
+				</element>
+                <element desc="Date of Birth" status="C" attribute="AN" length="7" position="201" name="DOBR">
+					<trncs>         
+						<trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="CANX CANN CANR RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR TASF EMDS EMDA"/> 											
+                	</trncs>
+				</element>
+                <element desc="Passenger Type Code" status="C" attribute="AN" length="3" position="208" name="PXTP">
+					<trncs>         
+						<trnc status="C" trncs="EMDS EMDA TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="CANX CANN CANR RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR TASF"/> 											
+                	</trncs>
+				</element>
+                <element desc="Routing Domestic/International Indicator" status="C" attribute="AN" length="1" position="211" name="RDII">
+					<trncs>         
+						<trnc status="C" trncs="EMDS EMDA TKTT RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="CANX CANR CANN"/> 											
+                	</trncs>
+				</element>
+                <element desc="Automated Repricing Engine Indicator" status="C" attribute="AN" length="1" position="212" name="AREI">
+					<trncs>         
+						<trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="CANX CANR CANN EMDS EMDA RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR TASF"/> 											
+                	</trncs>
+				</element>
+                <element desc="Time of Issue" status="C" attribute="N" length="4" position="213" name="TIIS"/>
+                <element desc="Reserved Space" status="M" attribute="AN" length="39" position="217" name="RESD"/> <!-- 不一样结束  -->
+            </elements>
+        </identifier>
+        
+      	<identifier name="IT03">
+            <elements>
+		        <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+                <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN"/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+                <element desc="Related Ticket/Document Coupon Number Identifier" status="C" attribute="N" length="4" position="8" name="RCPN1">
+                	<trncs>
+						<trnc status="C" trncs=""/>
+                		<trnc status="M" trncs="RFND RFNC"/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element> 
+                <element desc="Related Ticket/Document Number" status="M" attribute="AN" length="14" position="12" name="RTDN1"/>  <!-- 不一样  -->     
+                <element desc="Check-Digit" status="M" attribute="N" length="1" position="26" name="CDGT1"/>   
+                <element desc="Related Ticket/Document Coupon Number Identifier" status="C" attribute="N" length="4" position="27" name="RCPN2">
+                    <trncs>
+						<trnc status="C" trncs="RFND RFNC"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Related Ticket/Document Number" status="C" attribute="AN" length="14" position="31" name="RTDN2"/>
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="45" name="CDGT2"/>
+                <element desc="Related Ticket/Document Coupon Number Identifier" status="C" attribute="N" length="4" position="46" name="RCPN3">
+                    <trncs>
+						<trnc status="C" trncs="RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Related Ticket/Document Number" status="C" attribute="AN" length="14" position="50" name="RTDN3"/>
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="64" name="CDGT3"/>	
+                <element desc="Related Ticket/Document Coupon Number Identifier" status="C" attribute="N" length="4" position="65" name="RCPN4">
+                    <trncs>
+						<trnc status="C" trncs="RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Related Ticket/Document Number" status="C" attribute="AN" length="14" position="69" name="RTDN4"/>	
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="83" name="CDGT4"/>     
+                <element desc="Related Ticket/Document Coupon Number Identifier" status="C" attribute="N" length="4" position="84" name="RCPN5">
+                    <trncs>
+						<trnc status="C" trncs="RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Related Ticket/Document Number" status="C" attribute="AN" length="14" position="88" name="RTDN5"/>
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="102" name="CDGT5"/>
+                <element desc="Related Ticket/Document Coupon Number Identifier" status="C" attribute="N" length="4" position="103" name="RCPN6">
+                  	<trncs>
+						<trnc status="C" trncs="RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Related Ticket/Document Number" status="C" attribute="AN" length="14" position="107" name="RTDN6"/>
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="121" name="CDGT6"/>
+                <element desc="Related Ticket/Document Coupon Number Identifier" status="C" attribute="N" length="4" position="122" name="RCPN7">
+                    <trncs>
+						<trnc status="C" trncs="RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Related Ticket/Document Number" status="C" attribute="AN" length="14" position="126" name="RTDN7"/>
+                <element desc="Check-Digit" status="C" attribute="N" length="1" position="140" name="CDGT7"/>
+                <element desc="Date of Issue Related Document" status="C" attribute="N" length="6" position="141" name="DIRD">
+                    <trncs>						
+                    	<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs="RFNC RFND"/>
+                		<trnc status="N/A" trncs=""/> 			
+                	</trncs>
+                </element>	
+                <element desc="Waiver Code" status="C" attribute="AN" length="14" position="147" name="WAVR">
+                    <trncs>
+						<trnc status="C" trncs="RFNC RFND"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Reason for Memo Issuance Code" status="C" attribute="AN" length="5" position="161" name="RMIC">
+                    <trncs>
+						<trnc status="C" trncs="ADMA ADMD ADNT RCSM SPDR ACMR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RFNC RFND"/> 			
+                	</trncs>
+                </element>	
+                <element desc="Reserved Space" status="M" attribute="AN" length="90" position="166" name="RESD"/>
+        	</elements>
+        	
+        </identifier>
+          
+        <identifier name="IT05">
+            <elements>
+                <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+                <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN"/>
+                <element desc="Ticket/Document Amount" status="M" attribute="N" length="11" position="8" name="TDAM"/> <!-- 不同  -->
+                <element desc="Currency Type" status="M" attribute="AN" length="4" position="19" name="CUTP"/>
+                <element desc="Tax/Miscellaneous Fee Type" status="C" attribute="AN" length="8" position="23" name="TMFT1"/>
+                <element desc="Tax/Miscellaneous Fee Amount" status="C" attribute="N" length="11" position="31" name="TMFA1"/>
+                <element desc="Tax/Miscellaneous Fee Type" status="C" attribute="AN" length="8" position="42" name="TMFT2"/>
+                <element desc="Tax/Miscellaneous Fee Amount" status="C" attribute="N" length="11" position="50" name="TMFA2"/>
+                <element desc="Tax/Miscellaneous Fee Type" status="C" attribute="AN" length="8" position="61" name="TMFT3"/>
+                <element desc="Tax/Miscellaneous Fee Amount" status="C" attribute="N" length="11" position="69" name="TMFA3"/>              	
+                <element desc="Tax/Miscellaneous Fee Type" status="C" attribute="AN" length="8" position="80" name="TMFT4"/>
+                <element desc="Tax/Miscellaneous Fee Amount" status="C" attribute="N" length="11" position="88" name="TMFA4"/>
+                <element desc="Tax/Miscellaneous Fee Type" status="C" attribute="AN" length="8" position="99" name="TMFT5"/>
+                <element desc="Tax/Miscellaneous Fee Amount" status="C" attribute="N" length="11" position="107" name="TMFA5"/>
+                <element desc="Tax/Miscellaneous Fee Type" status="C" attribute="AN" length="8" position="118" name="TMFT6"/>
+                <element desc="Tax/Miscellaneous Fee Amount" status="C" attribute="N" length="11" position="126" name="TMFA6"/>
+                <element desc="Commission Type" status="C" attribute="AN" length="6" position="137" name="COTP1"/>
+                <element desc="Commission Rate" status="C" attribute="N" length="5" position="143" name="CORT1"/>
+                <element desc="Commission Amount" status="C" attribute="N" length="11" position="148" name="COAM1"/>
+                <element desc="Commission Type" status="C" attribute="AN" length="6" position="159" name="COTP2">
+                    <trncs>
+                	    <trnc status="C" trncs="TKTT EMDS EMDA RFND RFNC TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	
+                	</trncs> 
+                </element>
+                <element desc="Commission Rate" status="C" attribute="N" length="5" position="165" name="CORT2">
+                    <trncs>
+                	    <trnc status="C" trncs="TKTT EMDS EMDA RFND RFNC TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	
+                	</trncs> 
+                </element>
+                <element desc="Commission Amount" status="C" attribute="N" length="11" position="170" name="COAM2"/> 
+                <element desc="Commission Type" status="C" attribute="AN" length="6" position="181" name="COTP3">
+                    <trncs>
+                	    <trnc status="C" trncs="TKTT EMDS EMDA RFND RFNC TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	
+                	</trncs> 
+                </element>
+                <element desc="Commission Rate" status="C" attribute="N" length="5" position="187" name="CORT3">
+                    <trncs>
+                	    <trnc status="C" trncs="TKTT EMDS EMDA RFND RFNC TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	
+                	</trncs> 
+                </element>
+                <element desc="Commission Amount" status="C" attribute="N" length="11" position="192" name="COAM3"> 
+                    <trncs>
+                	    <trnc status="C" trncs="TKTT EMDS EMDA RFND RFNC TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	
+                	</trncs>            
+                </element>     	
+                <element desc="Net-Reporting Indicator" status="C" attribute="AN" length="2" position="203" name="NRID"/>
+                <element desc="Amount Paid by Customer" status="C" attribute="N" length="11" position="205" name="APBC">
+                    <trncs>
+                	    <trnc status="C" trncs="TKTT EMDS EMDA RFND RFNC TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	
+                	</trncs>  
+                </element>
+                <element desc="Amount Entered by Agent" status="C" attribute="N" length="11" position="216" name="AEBA">
+                    <trncs>
+                	    <trnc status="C" trncs="TKTT EMDS EMDA RFND RFNC TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	
+                	</trncs> 
+                </element>
+                <element desc="Tax on Commission Type" status="C" attribute="AN" length="6" position="227" name="TCTP">
+                    <trncs>
+                	    <trnc status="C" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="TKTT EMDS EMDA RFND RFNC TASF"/>   	
+                	</trncs> 
+                </element>
+                <element desc="Tax on Commission Amount" status="C" attribute="N" length="11" position="233" name="TOCA">
+                    <trncs>
+                	    <trnc status="C" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="TKTT EMDS EMDA RFND RFNC TASF"/>   	
+                	</trncs> 
+                </element>
+                <element desc="Reserved Space" status="M" attribute="AN" length="12" position="244" name="RESD"/>
+            </elements>
+        </identifier>
+        
+        <identifier name="IT0N">
+        	<elements>
+        		<element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+        		<element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN"/>
+        		<element desc="Currency Type" status="M" attribute="AN" length="4" position="8" name="CUTP"/>
+        		<element desc="Netting Type" status="M" attribute="A" length="1" position="12" name="NTTP1"/>
+        		<element desc="Netting Code" status="M" attribute="AN" length="8" position="13" name="NTTC1"/>
+        		<element desc="Netting Amount" status="M" attribute="AN" length="11" position="21" name="NTTA1"/>
+        		<element desc="Netting Type" status="C" attribute="A" length="1" position="32" name="NTTP2"/>
+        		<element desc="Netting Code" status="C" attribute="AN" length="8" position="33" name="NTTC2"/>
+        		<element desc="Netting Amount" status="C" attribute="N" length="11" position="41" name="NTTA2"/>
+        		<element desc="Netting Type" status="C" attribute="A" length="1" position="52" name="NTTP3"/>
+        		<element desc="Netting Code" status="C" attribute="AN" length="8" position="53" name="NTTC3"/>
+        		<element desc="Netting Amount" status="C" attribute="N" length="11" position="61" name="NTTA3"/>
+        		<element desc="Netting Type" status="C" attribute="A" length="1" position="72" name="NTTP4"/>
+        		<element desc="Netting Code" status="C" attribute="AN" length="8" position="73" name="NTTC4"/>
+        		<element desc="Netting Amount" status="C" attribute="N" length="11" position="81" name="NTTA4"/>
+        		<element desc="Netting Type" status="C" attribute="A" length="1" position="92" name="NTTP5"/>
+        		<element desc="Netting Code" status="C" attribute="AN" length="8" position="93" name="NTTC5"/>
+        		<element desc="Netting Amount" status="C" attribute="N" length="11" position="101" name="NTTA5"/>
+        		<element desc="Netting Type" status="C" attribute="A" length="1" position="112" name="NTTP6"/>
+        		<element desc="Netting Code" status="C" attribute="AN" length="8" position="113" name="NTTC6"/>
+        		<element desc="Netting Amount" status="C" attribute="N" length="11" position="121" name="NTTA6"/>
+        		<element desc="Netting Type" status="C" attribute="A" length="1" position="132" name="NTTP7"/>
+        		<element desc="Netting Code" status="C" attribute="AN" length="8" position="133" name="NTTC7"/>
+        		<element desc="Netting Amount" status="C" attribute="N" length="11" position="141" name="NTTA7"/>
+        		<element desc="Netting Type" status="C" attribute="A" length="1" position="152" name="NTTP8"/>
+        		<element desc="Netting Code" status="C" attribute="AN" length="8" position="153" name="NTTC8"/>
+        		<element desc="Netting Amount" status="C" attribute="N" length="11" position="161" name="NTTA8"/>
+        		<element desc="Netting Type" status="C" attribute="A" length="1" position="172" name="NTTP9"/>
+        		<element desc="Netting Code" status="C" attribute="AN" length="8" position="173" name="NTTC9"/>
+        		<element desc="Netting Amount" status="C" attribute="N" length="11" position="181" name="NTTA9"/>
+        		<element desc="Netting Type" status="C" attribute="A" length="1" position="192" name="NTTP10"/>
+        		<element desc="Netting Code" status="C" attribute="AN" length="8" position="193" name="NTTC10"/>
+        		<element desc="Netting Amount" status="C" attribute="N" length="11" position="201" name="NTTA10"/>
+                <element desc="Reserved Space" status="M" attribute="AN" length="44" position="212" name="RESD"/>
+        	</elements>
+        </identifier>
+        
+         <identifier name="IT0T">
+        	<elements>
+        		<element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+        		<element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN"/>
+        		<element desc="Segment Identifier" status="M" attribute="N" length="1" position="8" name="SEGI1"/>
+        		<element desc="Coupon Tax Airport Code" status="C" attribute="A" length="5" position="9" name="CTAC1"/>
+        		<element desc="Segment Tax Airport Code" status="C" attribute="A" length="6" position="14" name="STAC1"/>
+        		<element desc="Coupon Tax Code" status="M" attribute="AN" length="5" position="20" name="CTCD1"/>
+        		<element desc="Coupon Tax Reported Amount" status="M" attribute="N" length="11" position="25" name="CTRA1"/>
+        		<element desc="Coupon Tax Currency Type" status="C" attribute="AN" length="4" position="36" name="CUTX1"/>
+        		<element desc="Coupon Tax Applicable Amount" status="C" attribute="N" length="11" position="40" name="CTAA1"/>        		
+        		<element desc="Segment Identifier" status="C" attribute="N" length="1" position="51" name="SEGI2"/>
+        		<element desc="Coupon Tax Airport Code" status="C" attribute="A" length="5" position="52" name="CTAC2"/>
+        		<element desc="Segment Tax Airport Code" status="C" attribute="A" length="6" position="57" name="STAC2"/>
+        		<element desc="Coupon Tax Code" status="C" attribute="AN" length="5" position="63" name="CTCD2"/>
+        		<element desc="Coupon Tax Reported Amount" status="C" attribute="N" length="11" position="68" name="CTRA2"/>
+        		<element desc="Coupon Tax Currency Type" status="C" attribute="AN" length="4" position="79" name="CUTX2"/>
+        		<element desc="Coupon Tax Applicable Amount" status="C" attribute="N" length="11" position="83" name="CTAA2"/>
+        		<element desc="Segment Identifier" status="C" attribute="N" length="1" position="94" name="SEGI3"/>
+        		<element desc="Coupon Tax Airport Code" status="C" attribute="A" length="5" position="95" name="CTAC3"/>
+        		<element desc="Segment Tax Airport Code" status="C" attribute="A" length="6" position="100" name="STAC3"/>
+        		<element desc="Coupon Tax Code" status="C" attribute="AN" length="5" position="106" name="CTCD3"/>
+        		<element desc="Coupon Tax Reported Amount" status="C" attribute="N" length="11" position="111" name="CTRA3"/>
+        		<element desc="Coupon Tax Currency Type" status="C" attribute="AN" length="4" position="122" name="CUTX3"/>
+        		<element desc="Coupon Tax Applicable Amount" status="C" attribute="N" length="11" position="126" name="CTAA3"/>        		
+        		<element desc="Segment Identifier" status="C" attribute="N" length="1" position="137" name="SEGI4"/>
+        		<element desc="Coupon Tax Airport Code" status="C" attribute="A" length="5" position="138" name="CTAC4"/>
+        		<element desc="Segment Tax Airport Code" status="C" attribute="A" length="6" position="143" name="STAC4"/>
+        		<element desc="Coupon Tax Code" status="C" attribute="AN" length="5" position="149" name="CTCD4"/>
+        		<element desc="Coupon Tax Reported Amount" status="C" attribute="N" length="11" position="154" name="CTRA4"/>
+        		<element desc="Coupon Tax Currency Type" status="C" attribute="AN" length="4" position="165" name="CUTX4"/>
+        		<element desc="Coupon Tax Applicable Amount" status="C" attribute="N" length="11" position="169" name="CTAA4"/>		
+        		<element desc="Segment Identifier" status="C" attribute="N" length="1" position="180" name="SEGI5"/>
+        		<element desc="Coupon Tax Airport Code" status="C" attribute="A" length="5" position="181" name="CTAC5"/>
+        		<element desc="Segment Tax Airport Code" status="C" attribute="A" length="6" position="186" name="STAC5"/>
+        		<element desc="Coupon Tax Code" status="C" attribute="AN" length="5" position="192" name="CTCD5"/>
+        		<element desc="Coupon Tax Reported Amount" status="C" attribute="N" length="11" position="197" name="CTRA5"/>
+        		<element desc="Coupon Tax Currency Type" status="C" attribute="AN" length="4" position="208" name="CUTX5"/>
+        		<element desc="Coupon Tax Applicable Amount" status="C" attribute="N" length="11" position="212" name="CTAA5"/>	
+        		<element desc="Currency Type" status="M" attribute="AN" length="4" position="223" name="CUTP"/>
+                <element desc="Reserved Space" status="M" attribute="AN" length="29" position="227" name="RESD"/>
+        	</elements>
+        </identifier>
+        
+        
+       	<identifier name="IT06">
+            <elements>
+                <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+                <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN"/>
+                <element desc="Origin Airport/City Code" status="M" attribute="AN" length="5" position="8" name="ORAC1"/> <!-- 类型有区别 -->
+                <element desc="Destination Airport/City Code" status="M" attribute="AN" length="5" position="13" name="DSTC1"/>
+                <element desc="Frequent Flyer Reference" status="C" attribute="AN" length="20" position="18" name="FFRF1"/><!-- 长度变长 -->
+                <element desc="Carrier" status="C" attribute="AN" length="3" position="38" name="CARR1">
+                    <trncs>
+                        <trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs="EMDS EMDA"/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Sold Passenger Cabin" status="C" attribute="AN" length="1" position="41" name="CABI1">
+                	<trncs>
+                        <trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDS EMDA"/>   	                	
+                	</trncs>
+                </element>	
+                <element desc="Reservation Booking" status="M" attribute="A" length="2" position="42" name="RBKD1">
+                    <trncs>
+                        <trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Flight Date" status="C" attribute="AN" length="5" position="44" name="FTDA1">
+                    <trncs>
+                        <trnc status="C" trncs="TKTT EMDS"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="'Not Valid Before' Date" status="C" attribute="AN" length="5" position="49" name="NBDA1"/>
+                <element desc="'Not Valid After' Date" status="C" attribute="AN" length="5" position="54" name="NADA1"/>
+                <element desc="Fare Basis/Ticket Designator" status="C" attribute="AN" length="15" position="59" name="FBTD1">
+                	<trncs>
+                	    <trnc status="C" trncs=""/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs="EMDS EMDA"/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Flight Number" status="C" attribute="AN" length="5" position="74" name="FTNR1">
+                    <trncs>
+                	    <trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Flight Departure Time" status="C" attribute="AN" length="5" position="79" name="FTDT1">
+                    <trncs>
+                	    <trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Free Baggage Allowance" status="C" attribute="AN" length="3" position="84" name="FBAL1">
+                    <trncs>
+                	    <trnc status="C" trncs=""/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Flight Booking Status" status="C" attribute="A" length="2" position="87" name="FBST1">
+                    <trncs>
+                	    <trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Segment Identifier" status="M" attribute="N" length="1" position="89" name="SEGI1"/>
+                <element desc="Stopover Code" status="C" attribute="A" length="1" position="90" name="STPO1"/>       
+                <element desc="Fare Component Priced Passenger Type Code" status="C" attribute="AN" length="3" position="91" name="FCPT1"> <!--新增字段  -->
+                	<trncs>
+                	    <trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDS EMDA"/>   	                	
+                	</trncs> 
+                </element>                   
+                <element desc="Origin Airport/City Code" status="C" attribute="AN" length="5" position="94" name="ORAC2"/>
+                <element desc="Destination Airport/City Code" status="M" attribute="AN" length="5" position="99" name="DSTC2"/>
+                <element desc="Frequent Flyer Reference" status="C" attribute="AN" length="20" position="104" name="FFRF2"/><!-- 长度变长 -->
+                <element desc="Carrier" status="C" attribute="AN" length="3" position="124" name="CARR2">
+                    <trncs>
+                        <trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs="EMDS EMDA"/>
+                		<trnc status="N/A" trncs=""/>   	
+                	</trncs> 
+                </element>
+                <element desc="Sold Passenger Cabin" status="C" attribute="AN" length="1" position="127" name="CABI2">
+                	<trncs>
+                        <trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs="EMDS EMDA"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>	
+                <element desc="Reservation Booking" status="M" attribute="A" length="2" position="128" name="RBKD2">
+                    <trncs>
+                        <trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Flight Date" status="C" attribute="AN" length="5" position="130" name="FTDA2">
+                    <trncs>
+                        <trnc status="C" trncs="EMDS TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="'Not Valid Before' Date" status="C" attribute="AN" length="5" position="135" name="NBDA2"/>
+                <element desc="'Not Valid After' Date" status="C" attribute="AN" length="5" position="140" name="NADA2"/>
+                <element desc="Fare Basis/Ticket Designator" status="C" attribute="AN" length="15" position="145" name="FBTD2">
+                	<trncs>
+                	    <trnc status="C" trncs=""/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs>
+                </element>
+                <element desc="Flight Number" status="C" attribute="AN" length="5" position="160" name="FTNR2">
+                    <trncs>
+                	    <trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Flight Departure Time" status="C" attribute="AN" length="5" position="165" name="FTDT2">
+                    <trncs>
+                	    <trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Free Baggage Allowance" status="C" attribute="AN" length="3" position="170" name="FBAL2">
+                    <trncs>
+                	    <trnc status="C" trncs=""/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Flight Booking Status" status="C" attribute="A" length="2" position="173" name="FBST2">
+                    <trncs>
+                	    <trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>
+                <element desc="Segment Identifier" status="M" attribute="N" length="1" position="175" name="SEGI2"/>
+                <element desc="Stopover Code" status="C" attribute="A" length="1" position="176" name="STPO2"/>        
+                <element desc="Fare Component Priced Passenger Type Code" status="C" attribute="AN" length="3" position="177" name="FCPT2"> <!--新增字段  -->
+                	<trncs>
+                	    <trnc status="C" trncs="TKTT"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA EMDS"/>   	                	
+                	</trncs> 
+                </element>   
+                <element desc="Reserved Space" status="M" attribute="AN" length="76" position="180" name="RESD"/>
+            </elements>
+        </identifier>
+        
+        <identifier name="IT0G">
+            <elements>
+                <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+                <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN"/>
+	            <element desc="EMD Coupon Number" status="M" attribute="N" length="1" position="8" name="EMCP"/>
+	            <element desc="EMD Coupon Value" status="C" attribute="N" length="11" position="9" name="EMCV"/>
+	            <element desc="EMD Coupon Currency" status="M" attribute="AN" length="4" position="20" name="CUTP"/>
+	            <element desc="EMD Related Ticket Number" status="C" attribute="AN" length="14" position="24" name="EMRT"> <!-- 长度缩短 -->
+	            	<trncs>
+                	    <trnc status="C" trncs="EMDS"/>
+                		<trnc status="M" trncs="EMDA"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+	            <element desc="EMD Related Coupon Number" status="C" attribute="N" length="1" position="38" name="EMRC">
+	            	<trncs>
+                	    <trnc status="C" trncs="EMDS"/>
+                		<trnc status="M" trncs="EMDA"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+                <element desc="EMD Service type" status="C" attribute="AN" length="1" position="39" name="EMST"/> <!-- 新加字段 -->
+	            <element desc="EMD Reason for Issuance Sub Code" status="C" attribute="AN" length="3" position="40" name="EMSC"/>
+	            <element desc="EMD Fee Owner Airline Designator" status="C" attribute="AN" length="3" position="43" name="EMOC"/> <!-- 增加长度 -->
+                <element desc="EMD Excess Baggage Over Allowance Qualifier" status="C" attribute="AN" length="1" position="46" name="XBOA"/>
+                <element desc="EMD Excess Baggage Currency Code" status="C" attribute="AN" length="3" position="47" name="XBCT"/>
+                <element desc="EMD Excess Baggage Rate per Unit" status="C" attribute="AN" length="12" position="50" name="XBRU"/>
+	            <element desc="EMD Excess Baggage Total Number in Excess" status="C" attribute="AN" length="12" position="62" name="XBNE"/>
+	            <element desc="EMD Consumed at Issuance Indicator" status="C" attribute="AN" length="1" position="74" name="EMCI">
+	            	<trncs>
+                	    <trnc status="C" trncs="EMDS"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="EMDA"/>   	                	
+                	</trncs>
+                </element>	            
+	            <element desc="EMD Number of Services" status="M" attribute="N" length="3" position="75" name="EMNS"/> <!-- 增加开始 -->
+	            <element desc="EMD Operating Carrier" status="C" attribute="AN" length="3" position="78" name="EMCR"/>
+	            <element desc="EMD Attribute Group" status="C" attribute="AN" length="3" position="81" name="EMAG"/>
+	            <element desc="EMD Attribute Sub Group" status="C" attribute="AN" length="3" position="84" name="EMSG"/>
+	            <element desc="EMD Industry Carrier Indicator" status="C" attribute="AN" length="1" position="87" name="EMIC"/>
+	            <element desc="EMD Remarks" status="C" attribute="AN" length="70" position="88" name="EMRM"/>
+	            <element desc="Reserved Space" status="M" attribute="AN" length="98" position="158" name="RESD"/>
+            </elements>
+        </identifier> 
+        
+       	<identifier name="IT07">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+               <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN"/>
+               <element desc="Fare" status="M" attribute="AN" length="12" position="8" name="FARE"/> <!-- 不一样 -->
+               <element desc="Equivalent Fare Paid" status="C" attribute="AN" length="12" position="20" name="EQFR"/>
+               <element desc="Total" status="M" attribute="AN" length="12" position="32" name="TOTL"/>
+               <element desc="Fare Calculation Mode Indicator" status="M" attribute="AN" length="1" position="44" name="FCMI"/>
+               <element desc="Fare Calculation Pricing Indicator" status="M" attribute="AN" length="1" position="45" name="FCPI"/>
+               <element desc="Fare Calculation Area" status="C" attribute="AN" length="87" position="46" name="FRCA1">
+                    <trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS"/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+               		</trncs>
+               </element>
+          	   <element desc="Fare Calculation Sequence Number" status="C" attribute="N" length="1" position="133" name="FRCS1">
+          	   		<trncs>
+                   	    <trnc status="C" trncs="EMDA EMDS"/>
+                		<trnc status="M" trncs="TKTT"/>
+                		<trnc status="N/A" trncs=""/>   	                	
+                	</trncs>
+                </element>
+               <element desc="Fare Calculation Area" status="C" attribute="AN" length="87" position="134" name="FRCA2"/>	
+               <element desc="Fare Calculation Sequence Number" status="C" attribute="N" length="1" position="221" name="FRCS2"/>
+               <element desc="Original Issue Ticket/Document Number" status="C" attribute="AN" length="14" position="222" name="ORIT"/> <!-- 不一样 -->
+                <element desc="Original Issue Location–City Code" status="C" attribute="A" length="3" position="236" name="ORIL"/>
+               <element desc="Original Issue Date (DDMMMYY)" status="C" attribute="AN" length="7" position="239" name="ORID"/>
+               <element desc="Original Issue Agent Numeric Code (IATA Number)" status="C" attribute="N" length="8" position="246" name="ORIA"/>
+               <element desc="Reserved Space" status="M" attribute="AN" length="2" position="254" name="RESD"/>
+            </elements>
+        </identifier>  
+            
+       	<identifier name="IT08">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+               <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN"/>
+               <element desc="Form of Payment Account Number" status="C" attribute="AN" length="19" position="8" name="FPAC1">
+               		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA RFND RFNC TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>
+                </element>
+               <element desc="Form of Payment Amount" status="M" attribute="N" length="11" position="27" name="FPAM1"/>               
+               <element desc="Approval Code" status="C" attribute="AN" length="6" position="38" name="APLC1">
+               		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>               
+                </element>
+               <element desc="Currency Type" status="C" attribute="AN" length="4" position="44" name="CUTP1"/>               
+               <element desc="Extended Payment Code" status="C" attribute="AN" length="2" position="48" name="EXPC1"> 
+                    <trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>          
+               </element>
+               <element desc="Form of Payment Type" status="M" attribute="AN" length="10" position="50" name="FPTP1"/> <!-- 改为必填 -->
+               <element desc="Expiry Date" status="C" attribute="AN" length="4" position="60" name="EXDA1">
+               		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>         
+                </element>
+               <element desc="Customer File Reference" status="C" attribute="AN" length="27" position="64" name="CSTF1">
+               		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA RFND RFNC TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>
+               </element>    
+               <element desc="Card Verification Value Result" status="C" attribute="AN" length="1" position="91" name="CVVR1">
+               		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>
+               </element>
+		       <element desc="Source of Approval Code" status="C" attribute="AN" length="1" position="92" name="SAPP1">
+		       		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>   
+               </element>   
+		       <element desc="Form of Payment Transaction Information" status="C" attribute="AN" length="25" position="93" name="FPTI1">
+		       		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>
+               </element>
+		       <element desc="Authorised Amount" status="C" attribute="AN" length="11" position="118" name="AUTA1"> <!-- AUTA must be numeric. -->  
+		       		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>     
+               </element>
+               <element desc="Form of Payment Account Number" status="C" attribute="AN" length="19" position="129" name="FPAC2">
+               		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA RFND RFNC TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>
+                </element>
+               <element desc="Form of Payment Amount" status="M" attribute="N" length="11" position="148" name="FPAM2"/>               
+               <element desc="Approval Code" status="C" attribute="AN" length="6" position="159" name="APLC2">
+               		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>              
+                </element>
+               <element desc="Currency Type" status="C" attribute="AN" length="4" position="165" name="CUTP2"/>               
+               <element desc="Extended Payment Code" status="C" attribute="AN" length="2" position="169" name="EXPC2"> 
+               		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>           
+               </element>
+               <element desc="Form of Payment Type" status="M" attribute="AN" length="10" position="171" name="FPTP2"/> <!-- 改为必填 -->
+               <element desc="Expiry Date" status="C" attribute="AN" length="4" position="181" name="EXDA2">
+               		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>          
+                </element>
+               <element desc="Customer File Reference" status="C" attribute="AN" length="27" position="185" name="CSTF2">
+               		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA RFND RFNC TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs> 
+               </element>    
+               <element desc="Card Verification Value Result" status="C" attribute="AN" length="1" position="212" name="CVVR2">
+               		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>  
+               </element>
+		       <element desc="Source of Approval Code" status="C" attribute="AN" length="1" position="213" name="SAPP2">
+		       		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>   
+               </element>   
+		       <element desc="Form of Payment Transaction Information" status="C" attribute="AN" length="25" position="214" name="FPTI2">
+		       		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>  
+               </element>
+		       <element desc="Authorised Amount" status="C" attribute="AN" length="11" position="239" name="AUTA2"> <!-- AUTA must be numeric. -->  
+		       		<trncs>
+                   	    <trnc status="C" trncs="TKTT EMDS EMDA TASF"/>
+                		<trnc status="M" trncs=""/>
+                		<trnc status="N/A" trncs="RFND RFNC ADMA ADMD ADNT SPDR ACMA ACMD ACNT SPCR"/>   	                	
+                	</trncs>      
+               </element>      
+		       <element desc="Reserved Space" status="M" attribute="AN" length="6" position="250" name="RESD"/>
+            </elements>
+        </identifier> 
+        
+        <identifier name="IT09">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+               <element desc="Transaction Number" status="M" attribute="N" length="6" position="2" name="TRNN"/>
+               <element desc="Endorsements/Restrictions" status="C" attribute="AN" length="147" position="8" name="ENRS"/>
+          	   <element desc="Form of Payment Information" status="M" attribute="AN" length="50" position="155" name="FPIN1"/>
+               <element desc="Form of Payment Information" status="M" attribute="AN" length="50" position="205" name="FPIN2"/>          
+               <element desc="Reserved Space" status="M" attribute="AN" length="1" position="255" name="RESD"/>
+            </elements>
+        </identifier> 
+        
+       	<identifier name="IT0Z">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>
+               <element desc="Report Record Counter" status="M" attribute="N" length="11" position="2" name="RRDC"/>
+               <element desc="Reserved Space" status="M" attribute="AN" length="243" position="13" name="RESD"/>
+            </elements>
+        </identifier> 
+        
+        <!-- Record Identifier has error, use default IT0* -->
+        <identifier name="IT0*">
+            <elements>
+               <element desc="Record Identifier" status="M" attribute="AN" length="1" position="1" name="RCID"/>               
+               <element desc="Reserved Space" status="M" attribute="AN" length="254" position="2" name="RESD"/>
+            </elements>
+        </identifier> 
+    </identifiers>
+</dish>
