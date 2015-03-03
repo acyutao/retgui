@@ -119,7 +119,7 @@ public class IndexController {
                 fileName,
                 "utf-8");
 		System.out.println(name);
-		return "index";
+		return "retDetail";
 	}
 	
 	/**

@@ -26,5 +26,12 @@
 		<put-attribute name="page-script" value="/WEB-INF/views/index_script.jsp"></put-attribute>
 	</definition>
 	
+	<!-- 首页 -->
+	<definition name="retDetail" extends="basetemplate">
+		<put-attribute name="page-css" value="/WEB-INF/views/ret/detail_css.jsp"></put-attribute>
+		<put-attribute name="page" value="/WEB-INF/views/ret/detail.jsp"></put-attribute>
+		<put-attribute name="page-script" value="/WEB-INF/views/ret/detail_script.jsp"></put-attribute>
+	</definition>
+	
 
 </tiles-definitions>
