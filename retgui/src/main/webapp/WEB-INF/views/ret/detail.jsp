@@ -6,35 +6,73 @@
 <div class="row">
 	<div class="col-md-12">
 		<!-- BEGIN PAGE TITLE & BREADCRUMB-->
-		<h3 class="page-title">
-			文件详细信息<small>支持查询功能</small>
-		</h3>
-		<ul class="page-breadcrumb breadcrumb">
-			<li class="btn-group">
-				<button type="button" class="btn blue dropdown-toggle"
-					data-toggle="dropdown" data-hover="dropdown" data-delay="1000"
-					data-close-others="true">
-					<span>Actions</span><i class="fa fa-angle-down"></i>
-				</button>
-				<ul class="dropdown-menu pull-right" role="menu">
-					<li><a href="#">Action</a></li>
-					<li><a href="#">Another action</a></li>
-					<li><a href="#">Something else here</a></li>
-					<li class="divider"></li>
-					<li><a href="#">Separated link</a></li>
-				</ul>
-			</li>
-			<li><i class="fa fa-home"></i> <a href="index.html">Home</a> <i
-				class="fa fa-angle-right"></i></li>
-			<li><a href="#">文件详细</a></li>
 
-		</ul>
+
 		<!-- END PAGE TITLE & BREADCRUMB-->
 		<!-- END PAGE TITLE & BREADCRUMB-->
 	</div>
 </div>
 <!-- END PAGE HEADER-->
 <!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+
+		<div class="portlet box blue-steel">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="glyphicon glyphicon-file"></i> AURET20140828000.R
+				</div>
+				<div class="tools">
+					<a href="javascript:;" class="collapse"> </a> <a
+						href="#portlet-config" data-toggle="modal" class="config"> </a> <a
+						href="javascript:;" class="reload"> </a>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<a href="#" class="icon-btn"> <i class="fa fa-group"></i>
+					<div>140304</div> <span class="badge badge-success">SPED</span>
+				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
+					<div>SABR</div> <span class="badge badge-success">RPSI</span>
+				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
+					<div>203</div> <span class="badge badge-success">REVN</span>
+				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
+					<div>PROD</div> <span class="badge badge-success">TPST</span>
+				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
+					<div>140304</div> <span class="badge badge-success">PRDA</span>
+				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
+					<div>1112</div> <span class="badge badge-success">TIME</span>
+				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
+					<div>AU</div> <span class="badge badge-success">ISOC</span>
+				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
+					<div>1</div> <span class="badge badge-success">FTSN</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="well bg-grey-steel">
+	<div class="row search-form-default">
+		<div class="col-md-12">
+			<form class="form-inline" action="#">
+				<div class="input-group">
+					<div class="input-cont">
+						<input type="text" placeholder="Search...输入TRNN或者document number" class="form-control" />
+					</div>
+					<span class="input-group-btn">
+						<button type="button" class="btn green">
+							Search &nbsp; <i class="m-icon-swapright m-icon-white"></i>
+						</button>
+					</span>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12"></div>
+</div>
+
 <div class="row">
 	<div class="col-md-12">
 		<div class="note note-success">
@@ -44,32 +82,34 @@
 				<span class="label label-default"><strong>2</strong><span
 					class="badge badge-primary">TRNN</span></span> <span
 					class="label label-default"><strong>000001</strong><span
-					class="badge badge-primary">TRNN</span></span>
-					<span
-					class="label label-default"><strong>02361483 F 140304D</strong><span class="badge badge-primary">TDNR</span></span>
-					<span
-					class="label label-default"><strong>9540034600</strong><span class="badge badge-primary">CDGT</span></span></p><p>
-					<span
-					class="label label-default"><strong>857 </strong><span class="badge badge-primary">TCNR</span></span>
-					<span
-					class="label label-default"><strong>5TA</strong><span class="badge badge-primary">TACN</span></span>
-					<span
-					class="label label-default"><strong>5TASF00</strong><span class="badge badge-primary">TNNR</span></span>
-					<span
-					class="label label-default"><strong>110304332137</strong><span class="badge badge-primary">TRNN</span></span>
-					<span
-					class="label label-default"><strong> 6954 2 </strong><span class="badge badge-primary">TRNN</span></span>
-					<span
-					class="label label-default"><strong>PAYMAN/KAYVAN</strong><span class="badge badge-primary">TRNN</span></span>
-					<span
-					class="label label-default"><strong> DARYOUSH MR A</strong><span class="badge badge-primary">TRNN</span></span>
-					<span
-					class="label label-default"><strong>000000000000 000000000000 </strong><span class="badge badge-primary">TRNN</span></span>
-					<span
-					class="label label-default"><strong>000000000000 0000 AU</strong><span class="badge badge-primary">TRNN</span></span>
-					
-				
-				
+					class="badge badge-primary">TRNN</span></span> <span
+					class="label label-default"><strong>02361483 F
+						140304D</strong><span class="badge badge-primary">TDNR</span></span> <span
+					class="label label-default"><strong>9540034600</strong><span
+					class="badge badge-primary">CDGT</span></span>
+			</p>
+			<p>
+				<span class="label label-default"><strong>857 </strong><span
+					class="badge badge-primary">TCNR</span></span> <span
+					class="label label-default"><strong>5TA</strong><span
+					class="badge badge-primary">TACN</span></span> <span
+					class="label label-default"><strong>5TASF00</strong><span
+					class="badge badge-primary">TNNR</span></span> <span
+					class="label label-default"><strong>110304332137</strong><span
+					class="badge badge-primary">TRNN</span></span> <span
+					class="label label-default"><strong> 6954 2 </strong><span
+					class="badge badge-primary">TRNN</span></span> <span
+					class="label label-default"><strong>PAYMAN/KAYVAN</strong><span
+					class="badge badge-primary">TRNN</span></span> <span
+					class="label label-default"><strong> DARYOUSH MR A</strong><span
+					class="badge badge-primary">TRNN</span></span> <span
+					class="label label-default"><strong>000000000000
+						000000000000 </strong><span class="badge badge-primary">TRNN</span></span> <span
+					class="label label-default"><strong>000000000000
+						0000 AU</strong><span class="badge badge-primary">TRNN</span></span>
+
+
+
 			</p>
 		</div>
 		<div class="note note-info">
@@ -91,4 +131,5 @@
 		</div>
 	</div>
 </div>
+
 <!-- END PAGE CONTENT-->

@@ -7,7 +7,7 @@
     <div class="page-sidebar navbar-collapse collapse">
         <!-- add "navbar-no-scroll" class to disable the scrolling of the sidebar menu -->
         <!-- BEGIN SIDEBAR MENU -->
-        <ul class="page-sidebar-menu" data-auto-scroll="true" data-slide-speed="200">
+        <ul class="page-sidebar-menu page-sidebar-menu-closed" data-auto-scroll="true" data-slide-speed="200">
             <li class="sidebar-toggler-wrapper">
                 <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
                 <div class="sidebar-toggler hidden-phone">
