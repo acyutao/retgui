@@ -384,6 +384,14 @@
 			<artifactId>h2</artifactId>
 			<version>1.4.178</version>
 		</dependency>
+		
+		<!-- mongodb -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>1.7.0.RELEASE</version>
+		</dependency>
+		
 
 
 		<!-- TEST begin -->
