@@ -88,7 +88,7 @@ http://www.springframework.org/schema/task/spring-task-3.0.xsd"
 	<!-- Task Scheduled -->
 
 
-	<mongo:mongo host="127.0.0.1" port="27017"/>  
+	<mongo:mongo host="10.1.17.150" port="27017"/>  
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg ref="mongo" />
 		<constructor-arg name="databaseName" value="local" />
