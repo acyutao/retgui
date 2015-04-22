@@ -12,6 +12,10 @@ var Index = function () {
                     map.width(map.parent().width());
                 });
             });
+			
+			
+            
+
         },
 
         initJQVMAP: function () {
@@ -776,6 +780,8 @@ var Index = function () {
 
             }, 60000);
         }
+        
+
 
     };
 

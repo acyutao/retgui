@@ -4,6 +4,8 @@
  */
 package org.acca.retgui.dish;
 
+import org.acca.retgui.domainmodel.DishVersion;
+
 
 /**
  * DISH Version 203.
@@ -12,11 +14,11 @@ package org.acca.retgui.dish;
  * @author Li Jinghua, 2012-11-6
  */
 
-public class RetVersion220 extends RetVersion {
+public class RetVersion220 extends DishVersion {
 
     @Override
     public String getVersion() {
-        return DISH_220;
+        return RET_DISH_220;
     }
 
 }

@@ -4,17 +4,19 @@
  */
 package org.acca.retgui.dish;
 
+import org.acca.retgui.domainmodel.DishVersion;
+
 /**
  * DISH Version 203.
  *
  * @version Seurat v1.0
  * @author Yu Tao, 2012-11-6
  */
-public class RetVersion203 extends RetVersion {
+public class RetVersion203 extends DishVersion {
 
     @Override
     protected String getVersion() {
-        return DISH_203;
+        return RET_DISH_203;
     }
 
 }

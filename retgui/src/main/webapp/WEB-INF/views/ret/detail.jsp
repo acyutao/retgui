@@ -20,7 +20,7 @@
 		<div class="portlet box blue-steel">
 			<div class="portlet-title">
 				<div class="caption">
-					<i class="glyphicon glyphicon-file"></i> AURET20140828000.R
+					<i class="glyphicon glyphicon-file"></i> ${fileName}
 				</div>
 				<div class="tools">
 					<a href="javascript:;" class="collapse"> </a> <a
@@ -28,23 +28,25 @@
 						href="javascript:;" class="reload"> </a>
 				</div>
 			</div>
-			<div class="portlet-body">
+			<div class="portlet-body" id="headerContent">
 				<a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>140304</div> <span class="badge badge-success">SPED</span>
+					<div>${sped}</div> <span class="badge badge-success">SPED</span>
 				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>SABR</div> <span class="badge badge-success">RPSI</span>
+					<div>${rpsi}</div> <span class="badge badge-success">RPSI</span>
 				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>203</div> <span class="badge badge-success">REVN</span>
+					<div>${revn}</div> <span class="badge badge-success">REVN</span>
 				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>PROD</div> <span class="badge badge-success">TPST</span>
+					<div>${tpst}</div> <span class="badge badge-success">TPST</span>
 				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>140304</div> <span class="badge badge-success">PRDA</span>
+					<div>${prda}</div> <span class="badge badge-success">PRDA</span>
 				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>1112</div> <span class="badge badge-success">TIME</span>
+					<div>${time}</div> <span class="badge badge-success">TIME</span>
 				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>AU</div> <span class="badge badge-success">ISOC</span>
+					<div>${isoc}</div> <span class="badge badge-success">ISOC</span>
+				</a><a href="#" class="icon-btn"> <i class="fa fa-group"></i>
+					<div>${ftyp}</div> <span class="badge badge-success">FTYP</span>
 				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>1</div> <span class="badge badge-success">FTSN</span>
+					<div>${ftsn}</div> <span class="badge badge-success">FTSN</span>
 				</a>
 			</div>
 		</div>
@@ -74,13 +76,14 @@
 </div>
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-12" id="content">
 		<div class="note note-success">
 			<h4 class="block">IT02</h4>
 
 			<p>
 				<span class="label label-default"><strong>2</strong><span
-					class="badge badge-primary">TRNN</span></span> <span
+					class="badge badge-primary">TRNN</span></span>
+					 <span
 					class="label label-default"><strong>000001</strong><span
 					class="badge badge-primary">TRNN</span></span> <span
 					class="label label-default"><strong>02361483 F

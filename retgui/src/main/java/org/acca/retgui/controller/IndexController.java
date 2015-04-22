@@ -14,8 +14,12 @@ import java.util.Map.Entry;
 import javax.servlet.http.HttpServletRequest;
 
 import org.acca.retgui.config.ConfigHelper;
+import org.acca.retgui.dish.DishConst;
 import org.acca.retgui.domainmodel.FileInfo;
-import org.acca.retgui.utils.DesEncrypt;
+import org.acca.retgui.domainmodel.Record;
+import org.acca.retgui.domainmodel.Transaction;
+import org.acca.retgui.service.FileTypeParseFactory;
+import org.apache.commons.configuration.XMLConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author yutao
@@ -112,35 +117,117 @@ public class IndexController {
 
 		return list;
 	}
-	
+
 	@RequestMapping(value = "/detail/{fileName}/view", method = RequestMethod.GET)
-	public String viewFileDetail(@PathVariable String fileName) throws UnsupportedEncodingException{
-		String name = java.net.URLDecoder.decode(
-                fileName,
-                "utf-8");
-		System.out.println(name);
-		return "retDetail";
+	public ModelAndView viewFileDetail(@PathVariable String fileName)
+			throws UnsupportedEncodingException {
+		String name = java.net.URLDecoder.decode(fileName, "utf-8");
+		ModelAndView mv= new ModelAndView();
+		mv.setViewName( "retDetail");
+		Record header=getFileHeader(fileName);
+		mv.getModel().put("fileName", fileName);
+		mv.getModel().put(DishConst.SPED.toLowerCase(), header.getElement(DishConst.SPED));
+		mv.getModel().put(DishConst.RPSI.toLowerCase(), header.getElement(DishConst.RPSI));
+		mv.getModel().put(DishConst.REVN.toLowerCase(), header.getElement(DishConst.REVN));
+		mv.getModel().put(DishConst.TPST.toLowerCase(), header.getElement(DishConst.TPST));
+		mv.getModel().put(DishConst.PRDA.toLowerCase(), header.getElement(DishConst.PRDA));
+		mv.getModel().put(DishConst.TIME.toLowerCase(), header.getElement(DishConst.TIME));
+		mv.getModel().put(DishConst.ISOC.toLowerCase(), header.getElement(DishConst.ISOC));
+		mv.getModel().put(DishConst.FTYP.toLowerCase(), header.getElement(DishConst.FTYP));
+		mv.getModel().put(DishConst.FTSN.toLowerCase(), header.getElement(DishConst.FTSN));
+		
+		return mv;
+	}
+    /**
+     * @param fileName
+     * @return
+     * @throws UnsupportedEncodingException
+     */
+	@RequestMapping(value = "/detail/{fileName}/view", method = RequestMethod.POST,consumes = "application/json", produces = "application/json")
+	@ResponseBody
+	public String viewFileDetailContent(@PathVariable String fileName)
+			throws UnsupportedEncodingException {
+		List<Transaction> transactions = getTransaction(fileName);
+		StringBuilder res = new StringBuilder();
+		res.append("{\"");
+		res.append("content");
+		res.append("\":[");
+		// 循环显示表格中的每一行内容。
+		for (Transaction u : transactions) {
+			List<Record> records = u.getSequentialRecords();
+			for (Record retRecord : records) {
+				res.append("{\"");
+				res.append("lineNum");
+				res.append("\"");
+				res.append(":\"");
+				res.append(retRecord.getLineNum());
+				res.append("\",");
+				res.append("\"");
+				res.append("record");
+				res.append("\":[");
+				List<Map.Entry<String, String>>  maplists=retRecord.getElementList();
+
+				for (Map.Entry<String, String> mapEntry : maplists) {
+					res.append("{");
+					res.append("\"");
+					res.append("id");
+					res.append("\":\"");
+					res.append(mapEntry.getKey());
+					res.append("\",");
+					res.append("\"");
+					res.append("value");
+					res.append("\":\"");
+					res.append(mapEntry.getValue());
+					res.append("\"");
+					res.append("},");
+				}
+				res.delete(res.length() - 1, res.length());
+                res.append("]");
+                res.append("}");
+                res.append(",");
+			}
+			res.delete(res.length() - 1, res.length());
+              res.append(",");
+		}
+		res.delete(res.length() - 1, res.length());
+		res.append("]");
+		res.append("}");
+		return res.toString();
+	}
+
+	private List<Transaction> getTransaction(String fileName) {
+		XMLConfiguration configuration =ConfigHelper.getInstance();
+		String path=configuration.getString("uploadFilePath");
+		FileTypeParseFactory facotry = new FileTypeParseFactory(path, fileName);
+		return facotry.getFileParserInstance().parseTransactions();
 	}
 	
+	private Record getFileHeader(String fileName) {
+		XMLConfiguration configuration =ConfigHelper.getInstance();
+		String path=configuration.getString("uploadFilePath");
+		FileTypeParseFactory facotry = new FileTypeParseFactory(path, fileName);
+		return facotry.getFileParserInstance().parseFileHeader();
+	}
+
 	/**
 	 * 删除文件.
+	 * 
 	 * @param fileName
 	 * @return
 	 * @throws UnsupportedEncodingException
 	 */
 	@RequestMapping(value = "/fileName/{fileName}/remove", method = RequestMethod.DELETE)
 	@ResponseBody
-	public String deleteFile(@PathVariable String fileName) throws UnsupportedEncodingException{
-		String name = java.net.URLDecoder.decode(
-                fileName,
-                "utf-8");
-		
+	public String deleteFile(@PathVariable String fileName)
+			throws UnsupportedEncodingException {
+		String name = java.net.URLDecoder.decode(fileName, "utf-8");
+
 		String filePath = this.getFilePath();
 		File file = new File(filePath + name);
-		if(file.exists()){
+		if (file.exists()) {
 			file.delete();
 		}
-		
+
 		return "";
 	}
 }

@@ -27,10 +27,10 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @XmlRootElement(name = "dish")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DishRet {
+public class Dish {
 
     @XmlTransient
-    private static Map<String, DishRet> retMap;
+    private static Map<String, Dish> dishMap;
 
     @XmlAttribute
     private String version;
@@ -40,8 +40,10 @@ public class DishRet {
     private List<RecordIdentifier> recordIdentifiers;
 
     static {
-        String[] versions = { "203", "220" };
-        retMap = new HashMap();
+        String[] versions = { "Ret203", "Ret220"/*, "Ti203", "Ti220", "Cip203","Cip220", "Tsp203","Tsp220","Ndd203","Ndd220","Wad203","Wad220",
+        		"Ibg203","Ibg220","Xrate203","Xrate220"*/
+        		};
+        dishMap = new HashMap();
         for (String str : versions) {
             try {
                 String fileName = "dish" + str + ".xml";
@@ -52,8 +54,8 @@ public class DishRet {
                     continue;
                 }
 
-                DishRet ret = JAXBUtils.readObjectFromXml(DishRet.class, is);
-                retMap.put(str, ret);
+                Dish ret = JAXBUtils.readObjectFromXml(Dish.class, is);
+                dishMap.put(str, ret);
 
             } catch (JAXBException e) {
             }
@@ -83,8 +85,8 @@ public class DishRet {
      * @param version String
      * @return DishRet
      */
-    public static DishRet getDishRet(String version) {
-        DishRet ret = retMap.get(version);
+    public static Dish getDish(String version) {
+    	Dish ret = dishMap.get(version);
 
         if (ret == null) {
             throw new RuntimeException("Current System do not support the DISH version!!");
