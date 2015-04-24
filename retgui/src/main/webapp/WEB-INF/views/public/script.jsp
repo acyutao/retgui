@@ -18,3 +18,4 @@
 <araf:script url="assets/global/plugins/jquery.cokie.min.js" />
 <araf:script url="assets/global/plugins/uniform/jquery.uniform.min.js" />
 <!-- END CORE PLUGINS -->
+<araf:script url="assets/global/plugins/pace/pace.min.js"/>

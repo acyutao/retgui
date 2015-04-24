@@ -59,10 +59,10 @@
 			<form class="form-inline" action="#">
 				<div class="input-group">
 					<div class="input-cont">
-						<input type="text" placeholder="Search...输入TRNN或者document number" class="form-control" />
+						<input id="input-trnn" type="text" placeholder="Search...输入TRNN或者document number" class="form-control" />
 					</div>
 					<span class="input-group-btn">
-						<button type="button" class="btn green">
+						<button type="button" class="btn green" id="queryButton">
 							Search &nbsp; <i class="m-icon-swapright m-icon-white"></i>
 						</button>
 					</span>

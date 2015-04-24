@@ -20,8 +20,13 @@ import org.acca.retgui.domainmodel.Record;
 import org.acca.retgui.domainmodel.Transaction;
 import org.acca.retgui.service.FileTypeParseFactory;
 import org.apache.commons.configuration.XMLConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,6 +40,9 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class IndexController {
+	
+	@Autowired
+	private MongoTemplate mongoTemplate;
 
 	@RequestMapping(value = "/index", method = { RequestMethod.GET })
 	public String index() {
@@ -66,6 +74,13 @@ public class IndexController {
 						String filePath = this.getFilePath();
 						file.transferTo(new File(filePath
 								+ file.getOriginalFilename()));
+						
+						// 解析文件并存储到mongodb
+						List<Transaction> transactions = getTransaction(file.getOriginalFilename());
+						for(Transaction t : transactions){
+							mongoTemplate.insert(t, file.getOriginalFilename());
+						}
+						
 
 					} catch (FileNotFoundException ex) {
 						throw new RuntimeException("upload.failed.errorpath");
@@ -145,9 +160,10 @@ public class IndexController {
      */
 	@RequestMapping(value = "/detail/{fileName}/view", method = RequestMethod.POST,consumes = "application/json", produces = "application/json")
 	@ResponseBody
-	public String viewFileDetailContent(@PathVariable String fileName)
+	public String viewFileDetailContent(@PathVariable String fileName, @RequestBody String trnn)
 			throws UnsupportedEncodingException {
-		List<Transaction> transactions = getTransaction(fileName);
+		Query query = new Query(Criteria.where("sequentialRecords.elementMap.TRNN").is(trnn));
+		List<Transaction> transactions = mongoTemplate.find(query, Transaction.class, fileName);
 		StringBuilder res = new StringBuilder();
 		res.append("{\"");
 		res.append("content");
@@ -165,9 +181,9 @@ public class IndexController {
 				res.append("\"");
 				res.append("record");
 				res.append("\":[");
-				List<Map.Entry<String, String>>  maplists=retRecord.getElementList();
+				Map<String, String>  maplists = retRecord.getElementMap();
 
-				for (Map.Entry<String, String> mapEntry : maplists) {
+				for (Map.Entry<String, String> mapEntry : maplists.entrySet()) {
 					res.append("{");
 					res.append("\"");
 					res.append("id");

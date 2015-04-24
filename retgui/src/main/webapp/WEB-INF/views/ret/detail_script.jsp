@@ -1,7 +1,6 @@
 <%@ taglib prefix="araf" tagdir="/WEB-INF/tags/araf"%>
 
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<araf:script url="assets/global/plugins/dropzone/dropzone.js" />
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <araf:script url="assets/global/scripts/metronic.js" />

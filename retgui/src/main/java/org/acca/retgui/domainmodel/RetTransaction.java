@@ -4,10 +4,9 @@
  */
 package org.acca.retgui.domainmodel;
 
-import java.util.ArrayList;
 import java.util.List;
+
 import org.acca.retgui.dish.DishConst;
-import org.acca.retgui.dish.NoSuchRcidException;
 import org.acca.retgui.utils.StringUtils;
 
 /**
@@ -19,6 +18,13 @@ import org.acca.retgui.utils.StringUtils;
  * @author Yu Tao, 2012-11-12
  */
 public class RetTransaction extends Transaction{
+	
+	/**
+	 * default.
+	 */
+	public RetTransaction(){
+		
+	}
 
 	
 	public RetTransaction(Long beginLineNum,List<String> transRecords, DishVersion dishVersion) {
@@ -27,27 +33,13 @@ public class RetTransaction extends Transaction{
 		for (int i = 0; i < transRecords.size(); i++) {
 			String recordId=DishConst.IT0+StringUtils.subString(transRecords.get(i), 0, 1);
 			Record retRecord = new Record(transRecords.get(i), dishVersion,recordId,DishConst.IT0+"*");
-			retRecord.parseRecord();
 			retRecord.setLineNum(lineNum);
 			// sequential records
 			sequentialRecords.add(retRecord);
 
-			if (retRecord.isErrorRetRecord()) {
-				if (noSuchRcidExceptions == null) {
-					noSuchRcidExceptions = new ArrayList<NoSuchRcidException>();
-				}
-				noSuchRcidExceptions.add(retRecord.getNoSuchRcidException());
-				continue;
-			}
 			lineNum++;
 		}
 
-	}
-
-
-
-	public List<NoSuchRcidException> getNoSuchRcidExceptions() {
-		return noSuchRcidExceptions;
 	}
 
 	public List<Record> getSequentialRecords() {

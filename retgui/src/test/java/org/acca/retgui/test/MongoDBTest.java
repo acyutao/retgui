@@ -3,13 +3,15 @@
  */
 package org.acca.retgui.test;
 
+import java.util.List;
+
+import org.acca.retgui.domainmodel.Transaction;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.TextCriteria;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -39,5 +41,15 @@ public class MongoDBTest {
 		System.out.println(a);
 		
 //		mongoTemplate.
+	}
+	
+	@Test
+	public void testQueryT(){
+		String collections = "AURET20140828000.R";
+		Query query = new Query(Criteria.where("sequentialRecords.elementMap.TRNN").is("000001"));
+		
+		List<Transaction> list = mongoTemplate.find(query, Transaction.class, collections);
+		
+		System.out.println(list);
 	}
 }

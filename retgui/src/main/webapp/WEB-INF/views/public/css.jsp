@@ -16,3 +16,5 @@
 <link href='<c:url value="/assets/admin/layout/css/themes/default.css"/>' rel="stylesheet" type="text/css" id="style_color"/>
 <araf:stylesheet url="assets/admin/layout/css/custom.css" />
 <!-- END THEME STYLES -->
+<araf:stylesheet url="assets/global/plugins/pace/themes/pace-theme-barber-shop.css"/>
+
