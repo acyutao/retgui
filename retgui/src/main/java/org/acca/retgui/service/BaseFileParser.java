@@ -25,6 +25,12 @@ public abstract class BaseFileParser {
 	protected String dishVersion;
 
 	public abstract Record parseFileHeader();
+	
+	/**
+	 * 读取一个交易，实现中，需要记录读到的行数，一个交易一个交易的读取.
+	 * @return
+	 */
+	public abstract Transaction readATransaction();
 
 	public abstract List<Transaction> parseTransactions();
 

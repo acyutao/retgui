@@ -53,4 +53,10 @@ public class HotFileParser extends BaseFileParser{
 
 	}
 
+	@Override
+	public Transaction readATransaction() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
