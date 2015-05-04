@@ -17,19 +17,25 @@ import org.acca.retgui.utils.StringUtils;
 public class RetFileParser extends BaseFileParser {
 
 	public static final String RET_VERSION = "RetVersion";
+	
+	RetFileUtil fileUtil;
+	DishVersion version;
+	RetHelper helper;
+	long i = 2;
 
 	public RetFileParser(String absolutePath, String fileName) {
 		initialParam(absolutePath, fileName);
 		this.dishVersion= StringUtils.subString(this.firstLine, 11, 14);
+		
+		fileUtil = new RetFileUtil(this.absolutePath, this.fileName);
+		version = DishVersion.getInstance(RET_VERSION
+				+ this.dishVersion);
+		helper = new RetHelper(version, fileUtil);
 	}
 
 	@Override
 	public List<Transaction> parseTransactions() {
-		RetFileUtil fileUtil = new RetFileUtil(this.absolutePath, this.fileName);
-		DishVersion version = DishVersion.getInstance(RET_VERSION
-				+ this.dishVersion);
-		RetHelper helper = new RetHelper(version, fileUtil);
-
+		
 		long i = 2;
 
 		List<Transaction> retTransList = new ArrayList<Transaction>();
@@ -45,6 +51,17 @@ public class RetFileParser extends BaseFileParser {
 
 		return retTransList;
 	}
+	
+	@Override
+	public Transaction readATransaction() {
+		RetTransaction retTrans = helper.fetchTransRecords(i);
+		if(retTrans != null){
+			i += retTrans.getSequentialRecords().size();
+			return retTrans;
+		}
+		return null;
+	}
+
 
 	@Override
 	public Record parseFileHeader() {
@@ -93,4 +110,5 @@ public class RetFileParser extends BaseFileParser {
 
 	}
 
+	
 }
