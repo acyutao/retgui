@@ -18,6 +18,7 @@ import org.acca.retgui.dish.DishConst;
 import org.acca.retgui.domainmodel.FileInfo;
 import org.acca.retgui.domainmodel.Record;
 import org.acca.retgui.domainmodel.Transaction;
+import org.acca.retgui.execution.RetProcess;
 import org.acca.retgui.service.FileTypeParseFactory;
 import org.apache.commons.configuration.XMLConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -75,12 +77,7 @@ public class IndexController {
 						file.transferTo(new File(filePath
 								+ file.getOriginalFilename()));
 						
-						// 解析文件并存储到mongodb
-						List<Transaction> transactions = getTransaction(file.getOriginalFilename());
-						for(Transaction t : transactions){
-							mongoTemplate.insert(t, file.getOriginalFilename());
-						}
-						
+						new RetProcess().execute(file.getOriginalFilename());
 
 					} catch (FileNotFoundException ex) {
 						throw new RuntimeException("upload.failed.errorpath");
@@ -162,7 +159,13 @@ public class IndexController {
 	@ResponseBody
 	public String viewFileDetailContent(@PathVariable String fileName, @RequestBody String trnn)
 			throws UnsupportedEncodingException {
-		Query query = new Query(Criteria.where("sequentialRecords.elementMap.TRNN").is(trnn));
+		Query query = null;
+		// 查询，TRNN或者TDNR
+		if(trnn != null && trnn.length() <= 6 ){
+			 query = new Query(Criteria.where("sequentialRecords.elementMap.TRNN").is(trnn));
+		}else{
+			 query = new Query(Criteria.where("sequentialRecords.elementMap.TDNR").is(trnn));
+		}
 		List<Transaction> transactions = mongoTemplate.find(query, Transaction.class, fileName);
 		StringBuilder res = new StringBuilder();
 		res.append("{\"");
@@ -243,6 +246,8 @@ public class IndexController {
 		if (file.exists()) {
 			file.delete();
 		}
+		
+		mongoTemplate.dropCollection(name);
 
 		return "";
 	}
