@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.acca.retgui.config.ApplicationContextHolder;
 import org.acca.retgui.config.ConfigHelper;
+import org.acca.retgui.domainmodel.FileType;
 import org.acca.retgui.domainmodel.Transaction;
 import org.acca.retgui.service.BaseFileParser;
 import org.acca.retgui.service.FileTypeParseFactory;
@@ -58,7 +59,7 @@ public class RetProcess {
 	 * 
 	 * @param fileName
 	 */
-	public void execute(final String fileName) {
+	public FileType execute(final String fileName) {
 
 		// 初始化
 		this.fileName = fileName;
@@ -153,6 +154,8 @@ public class RetProcess {
 		}
 		
 		log.info("Writer Complete. {}", fileName);
+		
+		return parser.parseFileType();
 
 	}
 

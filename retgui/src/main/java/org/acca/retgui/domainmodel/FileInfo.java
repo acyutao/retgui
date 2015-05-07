@@ -21,6 +21,8 @@ public class FileInfo implements Serializable {
 	private String absolutePath;
 
 	private String firstLine;
+	
+	private String fileType;
 
 	private long fileSize; // M
 
@@ -80,5 +82,13 @@ public class FileInfo implements Serializable {
     public int getLineAndLindFeedWidth(){
         return lineWidth + lineFeedWidth;
     }
+
+	public String getFileType() {
+		return fileType;
+	}
+
+	public void setFileType(String fileType) {
+		this.fileType = fileType;
+	}
 
 }
