@@ -64,7 +64,7 @@ public class RetHelper {
      * 
      * @return List<String>
      */
-    public RetTransaction fetchTransRecords(long beginLineNum) {
+    public RetTransaction fetchTransRecords() {
 
         String line = "";        
         while(line != null){
@@ -75,7 +75,7 @@ public class RetHelper {
                 //读取到最后一行，将最后一个交易返回
                 if(line != null && line.startsWith("Z")){
                     if(currentTrans.size() > 0){
-                        return new RetTransaction(beginLineNum, currentTrans, dishVersion);
+                        return new RetTransaction(/*beginLineNum,*/ currentTrans, dishVersion);
                     }
                 }
                 
@@ -97,7 +97,7 @@ public class RetHelper {
                         List<String> result = currentTrans;
                         currentTrans = new ArrayList();
                         currentTrans.add(line);
-                        return new RetTransaction(beginLineNum, result, dishVersion);
+                        return new RetTransaction(/*beginLineNum, */result, dishVersion);
                         
                     }            
                     

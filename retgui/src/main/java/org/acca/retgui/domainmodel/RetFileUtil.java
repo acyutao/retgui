@@ -99,6 +99,24 @@ public class RetFileUtil extends DishFileUtil {
 		return org.apache.commons.lang.StringUtils.rightPad(
 				this.fileHeaderLine, RET_FILE_LINE_WIDTH);
 	}
+	
+    public Long getTotalTrans() throws DishFileException {
+        // 读取文件倒数第二行，获得RET文件交易数
+        String line = this.secondLastLine;
+
+        if (line == null || line.startsWith("1") || line.startsWith("Z")) {
+//            throw new DishFileException("RET File is Not DISH Fomat!");
+            return 0L;
+        }
+
+        if (LongUtil.valueOf(StringUtils.subString(line, 1, 7)) == null) {
+            return 0L;
+        }
+
+        // 获取交易数
+        return LongUtil.valueOf(StringUtils.subString(line, 1, 7));
+    }   
+    
 
 
 

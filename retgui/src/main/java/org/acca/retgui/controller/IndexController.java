@@ -192,68 +192,17 @@ public class IndexController {
      */
 	@RequestMapping(value = "/detail/{fileName}/view", method = RequestMethod.POST,consumes = "application/json", produces = "application/json")
 	@ResponseBody
-	public String viewFileDetailContent(@PathVariable String fileName, @RequestBody String trnn)
+	public List<Transaction> viewFileDetailContent(@PathVariable String fileName, @RequestBody String trnn)
 			throws UnsupportedEncodingException {
 		Query query = null;
 		// 查询，TRNN或者TDNR
 		if(trnn != null && trnn.length() <= 6 ){
-			 query = new Query(Criteria.where("sequentialRecords.elementMap.TRNN").is(trnn));
+			 query = new Query(Criteria.where("trnn").is(trnn));
 		}else{
-			 query = new Query(Criteria.where("sequentialRecords.elementMap.TDNR").is(trnn));
+			 query = new Query(Criteria.where("tdnr").is(trnn));
 		}
 		List<Transaction> transactions = mongoTemplate.find(query, Transaction.class, fileName);
-		StringBuilder res = new StringBuilder();
-		res.append("{\"");
-		res.append("content");
-		res.append("\":[");
-		// 循环显示表格中的每一行内容。
-		for (Transaction u : transactions) {
-			List<Record> records = u.getSequentialRecords();
-			for (Record retRecord : records) {
-				res.append("{\"");
-				res.append("lineNum");
-				res.append("\"");
-				res.append(":\"");
-				res.append(retRecord.getLineNum());
-				res.append("\",");
-				res.append("\"");
-				res.append("record");
-				res.append("\":[");
-				Map<String, String>  maplists = retRecord.getElementMap();
-
-				for (Map.Entry<String, String> mapEntry : maplists.entrySet()) {
-					res.append("{");
-					res.append("\"");
-					res.append("id");
-					res.append("\":\"");
-					res.append(mapEntry.getKey());
-					res.append("\",");
-					res.append("\"");
-					res.append("value");
-					res.append("\":\"");
-					res.append(mapEntry.getValue());
-					res.append("\"");
-					res.append("},");
-				}
-				res.delete(res.length() - 1, res.length());
-                res.append("]");
-                res.append("}");
-                res.append(",");
-			}
-			res.delete(res.length() - 1, res.length());
-              res.append(",");
-		}
-		res.delete(res.length() - 1, res.length());
-		res.append("]");
-		res.append("}");
-		return res.toString();
-	}
-
-	private List<Transaction> getTransaction(String fileName) {
-		XMLConfiguration configuration =ConfigHelper.getInstance();
-		String path=configuration.getString("uploadFilePath");
-		FileTypeParseFactory facotry = new FileTypeParseFactory(path, fileName);
-		return facotry.getFileParserInstance().parseTransactions();
+		return transactions;
 	}
 	
 	private Record getFileHeader(String fileName) {

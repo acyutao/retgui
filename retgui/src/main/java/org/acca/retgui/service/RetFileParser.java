@@ -40,13 +40,13 @@ public class RetFileParser extends BaseFileParser {
 
 		List<Transaction> retTransList = new ArrayList<Transaction>();
 
-		RetTransaction retTrans = helper.fetchTransRecords(i);
+		RetTransaction retTrans = helper.fetchTransRecords();
 
 		while (retTrans != null) {
 
 			retTransList.add(retTrans);
-			i += retTrans.getSequentialRecords().size();
-			retTrans = helper.fetchTransRecords(i);
+//			i += retTrans.getSequentialRecords().size();
+			retTrans = helper.fetchTransRecords();
 		}
 
 		return retTransList;
@@ -54,9 +54,9 @@ public class RetFileParser extends BaseFileParser {
 	
 	@Override
 	public Transaction readATransaction() {
-		RetTransaction retTrans = helper.fetchTransRecords(i);
+		RetTransaction retTrans = helper.fetchTransRecords();
 		if(retTrans != null){
-			i += retTrans.getSequentialRecords().size();
+//			i += retTrans.getSequentialRecords().size();
 			return retTrans;
 		}
 		return null;

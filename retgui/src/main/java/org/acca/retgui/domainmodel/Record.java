@@ -4,6 +4,7 @@
  */
 package org.acca.retgui.domainmodel;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -17,7 +18,8 @@ import org.apache.commons.lang.StringUtils;
 public class Record {
 
 	private Map<String, String> elementMap;
-	private long lineNum;
+	private List<String> keys;
+//	private long lineNum;
 	private String rcid;
 
 	/**
@@ -37,7 +39,7 @@ public class Record {
 	public Record(String recordLine, DishVersion dishVersion, String recordId,
 			String notRecordId) {
 		elementMap = new HashMap<String, String>();
-
+		keys = new ArrayList<String>();
 		RecordIdentifier identifier = dishVersion.getRecordIdentifier(recordId);
 
 		if (identifier == null) {
@@ -62,13 +64,8 @@ public class Record {
 			String value = StringUtils.substring(recordLine,
 					element.getPosition() - 1, element.getPosition() - 1
 							+ element.getLength());
-
-			Set<Map.Entry<String, String>> origianl = new HashSet<Map.Entry<String, String>>();
-			origianl.addAll(elementMap.entrySet());
 			elementMap.put(element.getName(), value);
-			Set<Map.Entry<String, String>> current = new HashSet<Map.Entry<String, String>>();
-			current.addAll(elementMap.entrySet());
-			current.removeAll(origianl);
+			keys.add(element.getName());
 		}
 	}
 
@@ -110,12 +107,18 @@ public class Record {
 
 	
 
-	public long getLineNum() {
-		return lineNum;
+//	public long getLineNum() {
+//		return lineNum;
+//	}
+//
+//	public void setLineNum(long lineNum) {
+//		this.lineNum = lineNum;
+//	}
+	public List<String> getKeys() {
+		return keys;
 	}
-
-	public void setLineNum(long lineNum) {
-		this.lineNum = lineNum;
+	public String getRcid() {
+		return rcid;
 	}
 
 	

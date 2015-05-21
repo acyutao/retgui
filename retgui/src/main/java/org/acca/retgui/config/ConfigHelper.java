@@ -15,6 +15,8 @@ import org.apache.commons.configuration.reloading.ReloadingStrategy;
 public class ConfigHelper {
 
 	public static final String UPLOAD_FILE_PATH = "uploadFilePath";
+	public static final String SIZE_CATEGORY="size";
+	public static final String CATEGORY_CAPACITY="category";
 	static final XMLConfiguration XMLINSTANCE;
 
 	static {

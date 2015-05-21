@@ -16,41 +16,43 @@ var Detail = function(fileName) {
 									$("div#content").html("");
 
 									var optionstring = "";
-
 									for ( var i in data) {
-										var jsonObj = eval(data[i]);
+										var jsonAll= eval(data[i]);
+										var jsonObj=jsonAll.sequentialRecords;
 										for ( var j = 0; j < jsonObj.length; j++) {
 											var jj = jsonObj[j];
-											var vv = eval(jj.record);
+											var vv = jj.elementMap;
+											var uu= jj.keys;
 											var size = 0;
 											optionstring += "<div class=\"note note-success\">"
-											if (vv[0].id == "RCID") {
+											if (uu[0]== "RCID") {
 												optionstring += "<h4 class=\"block\">"
 														+ "IT0"
-														+ vv[0].value
+														+ vv['RCID']
 														+ "</h4>";
 											}
 											optionstring += "<p>";
-											for ( var m = 0; m < vv.length; m++) {
-												var mm = vv[m];
-												if (size + mm.value.length > 68) {
+											for ( var m = 0; m < uu.length; m++) {
+												var mm = vv[uu[m]];
+												if (size + mm.length > 68) {
 													size = 0;
 													optionstring += "</p>";
 													optionstring += "<p>";
 												}
 
 												optionstring += "<span class=\"label label-default\"><strong>"
-														+ mm.value
+														+ mm
 														+ "</strong><span class=\"badge badge-primary\">"
-														+ mm.id
+														+ uu[m]
 														+ "</span></span>";
-												size += mm.value.length;
+												size += mm.length;
 
 											}
 											optionstring += "</p>";
 											optionstring += "</div>";
 										}
 
+									
 									}
 									$("div#content").html(optionstring);
 
