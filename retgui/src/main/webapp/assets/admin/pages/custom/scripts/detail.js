@@ -17,15 +17,15 @@ var Detail = function(fileName) {
 
 									var optionstring = "";
 									for ( var i in data) {
-										var jsonAll= eval(data[i]);
-										var jsonObj=jsonAll.sequentialRecords;
+										var jsonAll = eval(data[i]);
+										var jsonObj = jsonAll.sequentialRecords;
 										for ( var j = 0; j < jsonObj.length; j++) {
 											var jj = jsonObj[j];
 											var vv = jj.elementMap;
-											var uu= jj.keys;
+											var uu = jj.keys;
 											var size = 0;
 											optionstring += "<div class=\"note note-success\">"
-											if (uu[0]== "RCID") {
+											if (uu[0] == "RCID") {
 												optionstring += "<h4 class=\"block\">"
 														+ "IT0"
 														+ vv['RCID']
@@ -34,7 +34,12 @@ var Detail = function(fileName) {
 											optionstring += "<p>";
 											for ( var m = 0; m < uu.length; m++) {
 												var mm = vv[uu[m]];
-												if (size + mm.length > 68) {
+												var mmlen = mm.trim().length;
+												if (mmlen == 0) {
+													mmlen = 1;
+												}
+												if (size + mmlen
+														+ uu[m].length > 120) {
 													size = 0;
 													optionstring += "</p>";
 													optionstring += "<p>";
@@ -45,14 +50,14 @@ var Detail = function(fileName) {
 														+ "</strong><span class=\"badge badge-primary\">"
 														+ uu[m]
 														+ "</span></span>";
-												size += mm.length;
+												size += mmlen
+														+ uu[m].length;
 
 											}
 											optionstring += "</p>";
 											optionstring += "</div>";
 										}
 
-									
 									}
 									$("div#content").html(optionstring);
 
