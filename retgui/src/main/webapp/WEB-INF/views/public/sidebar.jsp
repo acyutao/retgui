@@ -28,7 +28,7 @@
                 <!-- END RESPONSIVE QUICK SEARCH FORM -->
             </li>
             <li class="start active"  id="documents">
-                <a href="/documents">
+                <a href="<c:url value="/index"/>">
                     <i class="fa fa-home"></i>
                     <span class="title">
                     	文档列表
@@ -37,42 +37,7 @@
                     </span>
                 </a>
             </li>
-            <li>
-                <a href="javascript:;">
-                    <i class="fa fa-gears"></i>
-                    <span class="title">
-                                                管理
-                    </span>
-                    <span class="arrow ">
-                    </span>
-                </a>
-                <ul class="sub-menu">
-                    <sec:authorize access="hasAnyRole('ADMIN', 'USER')">
-                    <li id="user">
-                        <a href="/user">
-                            <i class="fa fa-user"></i>
-                                                        个人信息
-                        </a>
-                    </li>
-                    </sec:authorize>
-                    <sec:authorize access="hasAnyRole('ADMIN', 'SUPER_ADMIN')">
-                    <li id="users">
-                        <a href="/users">
-                            <i class="fa fa-users"></i>
-                                                        用户权限
-                        </a>
-                    </li>
-                    </sec:authorize>
-                    <sec:authorize access="hasAnyRole('ADMIN')">
-                    <li id="lawRisks">
-                        <a href="/lawRisks">
-                            <i class="fa fa-ban"></i>
-                                                       法律风险维护
-                        </a>
-                    </li>
-                    </sec:authorize>
-                </ul>
-            </li>
+            
             
         </ul>
         <!-- END SIDEBAR MENU -->
