@@ -56,7 +56,7 @@
 <div class="well bg-grey-steel">
 	<div class="row search-form-default">
 		<div class="col-md-12">
-			<form class="form-inline" action="#">
+			
 				<div class="input-group">
 					<div class="input-cont">
 						<input id="input-trnn" type="text"
@@ -64,12 +64,11 @@
 							class="form-control" />
 					</div>
 					<span class="input-group-btn">
-						<button type="submit" class="btn green" id="queryButton">
+						<button type="button" class="btn green" id="queryButton">
 							Search &nbsp; <i class="m-icon-swapright m-icon-white"></i>
 						</button>
 					</span>
 				</div>
-			</form>
 		</div>
 	</div>
 </div>

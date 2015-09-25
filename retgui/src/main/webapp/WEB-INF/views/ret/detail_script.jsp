@@ -14,5 +14,6 @@
 		Layout.init(); // init current layout
 		Detail.init("${fileName}");
 	});
+
 </script>
 <!-- END PAGE LEVEL SCRIPTS -->

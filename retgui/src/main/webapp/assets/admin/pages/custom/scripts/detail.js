@@ -1,10 +1,8 @@
 var Detail = function(fileName) {
 
 	var queryDetail = function(fileName, str) {
-		Pace
-				.track(function() {
-					$
-							.ajax({
+		Pace.track(function() {
+					$.ajax({
 								url : "/retgui/detail/" + fileName + "/view",
 								type : "POST",
 								data : str,
@@ -72,17 +70,29 @@ var Detail = function(fileName) {
 	}
 
 	var queryButton = function(fileName) {
+		$("#input-trnn").keyup(function (event) {
+
+            if (event.keyCode == "13") {
+       　　　　　	//已经写好的点击按钮所执行的js方法
+　　　　　　　　　//Fun_Submit();
+            	queryDetail(fileName, $("#input-trnn").val());
+            }
+
+        });
+		
 		$("#queryButton").bind("click", function() {
 			queryDetail(fileName, $("#input-trnn").val());
 		});
+		
 	}
 
 	return {
 		init : function(fileName) {
+			
+			queryButton(fileName);
 
 			queryDetail(fileName, '000001');
-
-			queryButton(fileName);
+			
 		}
 
 	};
