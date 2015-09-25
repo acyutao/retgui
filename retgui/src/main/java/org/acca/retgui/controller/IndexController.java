@@ -53,6 +53,11 @@ public class IndexController {
 	public String index() {
 		return "index";
 	}
+	
+	@RequestMapping(value = "/test/testJsp", method = { RequestMethod.GET })
+	public String tesJsp() {
+		return "testLogin";
+	}
 
 	/**
 	 * 上传文件api, file为默认名字.
