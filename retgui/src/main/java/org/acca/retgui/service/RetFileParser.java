@@ -74,6 +74,16 @@ public class RetFileParser extends BaseFileParser {
 				DishConst.IT0 + "*");
 		return retRecord;
 	}
+	
+	public Record parseFileHeader(String firstLine){
+		String rcid = DishConst.IT0
+				+ StringUtils.subString(firstLine, 0, 1);
+		DishVersion version = DishVersion.getInstance(RET_VERSION
+				+ this.dishVersion);
+		Record retRecord = new Record(firstLine, version, rcid,
+				DishConst.IT0 + "*");
+		return retRecord;
+	}
 
 	@Override
 	public FileType parseFileType() {

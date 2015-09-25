@@ -15,14 +15,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.acca.retgui.config.ConfigHelper;
 import org.acca.retgui.dish.DishConst;
+import org.acca.retgui.domainmodel.DishVersion;
 import org.acca.retgui.domainmodel.FileInfo;
 import org.acca.retgui.domainmodel.FileType;
 import org.acca.retgui.domainmodel.Record;
 import org.acca.retgui.domainmodel.Transaction;
 import org.acca.retgui.execution.RetProcess;
-import org.acca.retgui.service.FileTypeParseFactory;
+import org.acca.retgui.service.RetFileParser;
 import org.acca.retgui.utils.FileUtils;
-import org.apache.commons.configuration.XMLConfiguration;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -172,7 +172,7 @@ public class IndexController {
 		if(!StringUtils.isEmpty(info.getFileType()) && FileType.RET == FileType.valueOf(info.getFileType())){
 			
 			mv.setViewName( "retDetail");
-			Record header=getFileHeader(fileName);
+			Record header=getFileHeader(info.getFirstLine());
 			mv.getModel().put("fileName", fileName);
 			mv.getModel().put(DishConst.SPED.toLowerCase(), header.getElement(DishConst.SPED));
 			mv.getModel().put(DishConst.RPSI.toLowerCase(), header.getElement(DishConst.RPSI));
@@ -210,11 +210,14 @@ public class IndexController {
 		return transactions;
 	}
 	
-	private Record getFileHeader(String fileName) {
-		XMLConfiguration configuration =ConfigHelper.getInstance();
-		String path=configuration.getString("uploadFilePath");
-		FileTypeParseFactory facotry = new FileTypeParseFactory(path, fileName);
-		return facotry.getFileParserInstance().parseFileHeader();
+	private Record getFileHeader(String firstLine) {
+		
+		String dishVersion= StringUtils.substring(firstLine, 11, 14);
+		DishVersion version = DishVersion.getInstance(RetFileParser.RET_VERSION
+				+ dishVersion);
+		Record retRecord = new Record(firstLine, version, "1",
+				DishConst.IT01);
+		return retRecord;
 	}
 
 	/**

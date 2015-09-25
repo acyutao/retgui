@@ -30,23 +30,23 @@
 			</div>
 			<div class="portlet-body" id="headerContent">
 				<a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>${sped}</div> <span class="badge badge-success">SPED</span>
+					<div style="white-space:pre">${sped}</div> <span class="badge badge-success">SPED</span>
 				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>${rpsi}</div> <span class="badge badge-success">RPSI</span>
+					<div style="white-space:pre">${rpsi}</div> <span class="badge badge-success">RPSI</span>
 				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>${revn}</div> <span class="badge badge-success">REVN</span>
+					<div style="white-space:pre">${revn}</div> <span class="badge badge-success">REVN</span>
 				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>${tpst}</div> <span class="badge badge-success">TPST</span>
+					<div style="white-space:pre">${tpst}</div> <span class="badge badge-success">TPST</span>
 				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>${prda}</div> <span class="badge badge-success">PRDA</span>
+					<div style="white-space:pre">${prda}</div> <span class="badge badge-success">PRDA</span>
 				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>${time}</div> <span class="badge badge-success">TIME</span>
+					<div style="white-space:pre">${time}</div> <span class="badge badge-success">TIME</span>
 				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>${isoc}</div> <span class="badge badge-success">ISOC</span>
+					<div style="white-space:pre">${isoc}</div> <span class="badge badge-success">ISOC</span>
 				</a><a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>${ftyp}</div> <span class="badge badge-success">FTYP</span>
+					<div style="white-space:pre">${ftyp}</div> <span class="badge badge-success">FTYP</span>
 				</a> <a href="#" class="icon-btn"> <i class="fa fa-group"></i>
-					<div>${ftsn}</div> <span class="badge badge-success">FTSN</span>
+					<div style="white-space:pre">${ftsn}</div> <span class="badge badge-success">FTSN</span>
 				</a>
 			</div>
 		</div>

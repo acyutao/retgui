@@ -27,6 +27,15 @@ public abstract class BaseFileParser {
 	public abstract Record parseFileHeader();
 	
 	/**
+	 * 根据传入的firstLine，生成header.
+	 * @param firstLine
+	 * @return
+	 */
+	public Record parseFileHeader(String firstLine){
+		throw new RuntimeException("sub class must orverride.");
+	}
+	
+	/**
 	 * 读取一个交易，实现中，需要记录读到的行数，一个交易一个交易的读取.
 	 * @return
 	 */

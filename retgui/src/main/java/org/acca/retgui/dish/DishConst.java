@@ -19,6 +19,7 @@ public class DishConst {
 	public static final String REVN = "REVN";
 	public static final String TPST = "TPST";
 	public static final String IT0 = "IT0";
+	public static final String IT01 = "IT01";
 	public static final String IT02="IT02";
 	public static final String TRNN = "TRNN";
 	public static final String TDNR = "TDNR";
